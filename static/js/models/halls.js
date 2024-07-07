@@ -326,7 +326,8 @@ const loadHalls = (amount = filteredHalls.length) => {
   grid.innerHTML = '';
 
   if (filteredHalls.length === 0) {
-    grid.innerHTML = '<h2>No halls found...<h2>';
+    grid.innerHTML =
+      '<h2 style="margin-bottom: 4.05rem;">No halls found...<h2>';
   }
 
   filteredHalls.slice(0, amount).forEach((hall) => {
