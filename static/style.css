@@ -388,6 +388,7 @@ section {
   inset: 0;
   padding: 1rem;
   border-radius: 0.2rem;
+  z-index: 1;
 }
 
 .modal[data-open] {
@@ -464,7 +465,6 @@ section {
   text-align: center;
   position: relative;
   margin-top: 1.2rem;
-  z-index: -1;
 }
 
 .footer::before {
