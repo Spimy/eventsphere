@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventSphere - Hall</title>
+    <link rel="stylesheet" href="static/style.css" />
+  </head>
+  <body onload="loadHall()">
+    <header class="navbar">
+      <a class="navbar__logo" href="index.html">
+        <img src="static/img/logos/mini.svg" alt="mini-logo" />
+      </a>
+
+      <nav class="navbar__links">
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a aria-current="page" href="plan.html">Plan an Event</a></li>
+          <li><a href="consult.html">Book a Consultation</a></li>
+          <li><a href="gallery.html">Event Gallery</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+
+        <div class="navbar__links__burger">
+          <label for="burger" aria-label="Burger toggler"></label>
+          <input
+            type="checkbox"
+            name="burger"
+            id="burger"
+            role="menuitem"
+            aria-label="Toggle burger menu"
+            hidden
+          />
+        </div>
+      </nav>
+    </header>
+
+    <main class="hall">
+      <section id="hall-details" class="hall__details"></section>
+      <section id="hall-description" class="hall__description"></section>
+      <section id="hall-gallery" class="hall__gallery grid"></section>
+
+      <div class="modal" data-modal="book">
+        <form method="GET" name="book" class="modal__container">
+          <div class="modal__container__header">
+            <h2 class="modal__title">Event Booking</h2>
+            <button type="button" role="menuitem">
+              <img src="static/img/icons/close.svg" alt="close-btn" />
+            </button>
+          </div>
+
+          <div class="input-container">
+            <label for="type">Event Type</label>
+            <select name="type" id="type" required></select>
+          </div>
+
+          <div class="input-separator">
+            <div class="input-container">
+              <label for="start-date">Start Date</label>
+              <input type="date" name="start-date" id="start-date" required />
+              <small id="start-date-fail" class="fail"></small>
+            </div>
+            <div class="input-container">
+              <label for="end-date">End Date</label>
+              <input type="date" name="end-date" id="end-date" required />
+              <small id="end-date-fail" class="fail"></small>
+            </div>
+          </div>
+
+          <div class="input-separator">
+            <div class="input-container">
+              <label for="start-time">Start Time</label>
+              <input type="time" name="start-time" id="start-time" required />
+            </div>
+            <div class="input-container">
+              <label for="end-time">End Time</label>
+              <input type="time" name="end-time" id="end-time" required />
+              <small id="end-time-fail" class="fail"></small>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <label for="pax">Number of Pax</label>
+            <input
+              type="number"
+              name="pax"
+              id="pax"
+              value="1"
+              min="1"
+              required
+            />
+            <small id="pax-fail" class="fail"></small>
+          </div>
+
+          <button type="submit" class="btn">Make a Reservation</button>
+        </form>
+      </div>
+    </main>
+
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/models/users.js"></script>
+    <script src="static/js/models/halls.js"></script>
+    <script src="static/js/utils/markdown.js"></script>
+    <script src="static/js/utils/modal.js"></script>
+    <script src="static/js/utils/validator.js"></script>
+
+    <script>
+      let loadedHall;
+      const typeInput = document.getElementById('type');
+
+      const loadHall = () => {
+        const slug = new URLSearchParams(window.location.search).get('slug');
+        const hall = halls.find((hall) => hall.slug === slug);
+
+        const hallDescription = document.getElementById('hall-description');
+
+        if (!hall) {
+          hallDescription.innerHTML = `
+            <h1>404 Unknown Venue</h1>
+            <a class="btn" href="plan.html">Back</a>
+          `;
+
+          hallDescription.style.display = 'grid';
+          hallDescription.style.placeContent = 'center';
+          hallDescription.style.gap = '0.5rem';
+          hallDescription.style.textAlign = 'center';
+
+          return;
+        }
+
+        loadedHall = hall;
+        document.title = `EventSphere - ${hall.name}`;
+
+        const hallGallery = document.getElementById('hall-gallery');
+        hallGallery.style.setProperty(
+          '--_grid-column-count',
+          hall.gallery.length >= 4 ? 4 : 3
+        );
+
+        hallGallery.innerHTML = hall.gallery
+          .map((img, i) => {
+            return `
+              <img
+                src="${img}"
+                alt="${hall.slug} image ${i + 1}"
+              />
+            `;
+          })
+          .join('\n');
+
+        typeInput.innerHTML = `
+          <option value="${hall.type}" selected>${hall.type}</option>
+        `;
+
+        const card = document.createElement('article');
+        card.classList.add('card');
+
+        card.innerHTML = `
+          <header class="card__image">
+            <img src="${hall.image}" alt="${hall.name}" />
+          </header>
+
+          <main class="card__content">
+            <div class="card__content__info">
+              <h2>${hall.name}</h2>
+              <p class="highlight">${hall.locale} | ${hall.location}</p>
+              <p>MYR ${hall.pricePerPax} per pax</p>
+              <p style="display: flex; align-items: center; gap: 0.2rem;">
+                <img src="static/img/icons/pax.svg" alt="pax-icon" />
+                ${hall.maxPax} attendees (Maximum)
+              </p>
+            </div>
+
+            <button type="button" data-modal="book" class="btn">Book Now</button>
+          </main>
+        `;
+
+        const hallDetails = document.getElementById('hall-details');
+        hallDetails.appendChild(card);
+
+        const description = markdownToHtml(hall.description);
+        hallDescription.innerHTML = description;
+
+        setupModals();
+      };
+
+      const modal = document.querySelector(`.modal[data-modal="book"]`);
+      if (!Auth.getSession()) {
+        modal.innerHTML = `
+          <div class="modal__container">
+          <div class="modal__container__header">
+            <h2 class="modal__title">You need to be logged in</h2>
+            <button type="button" role="menuitem">
+              <img src="static/img/icons/close.svg" alt="close-btn" />
+            </button>
+          </div>
+          <a class="btn" href="login.html?next=${window.location}">
+            Login
+          </a>
+        `;
+      }
+
+      const startDateInput = document.getElementById('start-date');
+      const endDateInput = document.getElementById('end-date');
+      const startTimeInput = document.getElementById('start-time');
+      const endTimeInput = document.getElementById('end-time');
+      const paxInput = document.getElementById('pax');
+
+      const startDateFail = document.getElementById('start-date-fail');
+      const endDateFail = document.getElementById('end-date-fail');
+      const endTimeFail = document.getElementById('end-time-fail');
+      const paxFail = document.getElementById('pax-fail');
+
+      const validPax = () => {
+        const pax = parseInt(paxInput.value);
+
+        if (isNaN(pax)) {
+          paxFail.innerHTML = 'Must be a number';
+          return false;
+        }
+
+        if (pax < 1) {
+          paxFail.innerHTML = 'Minimum pax is 1';
+          return false;
+        }
+
+        if (pax > loadedHall.maxPax) {
+          paxFail.innerHTML = `Maximum pax is ${loadedHall.maxPax}`;
+          return false;
+        }
+
+        paxFail.innerHTML = '';
+        return true;
+      };
+
+      startDateInput.addEventListener('input', () =>
+        validStartDate(startDateInput, startDateFail)
+      );
+      endDateInput.addEventListener('input', () =>
+        validEndDate(startDateInput, endDateInput, endDateFail)
+      );
+      endTimeInput.addEventListener('input', () =>
+        validEndTime(
+          startDateInput,
+          endDateInput,
+          startTimeInput,
+          endTimeInput,
+          endTimeFail
+        )
+      );
+      paxInput.addEventListener('input', validPax);
+
+      const bookingForm = document.forms.namedItem('book');
+      bookingForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        if (!validStartDate(startDateInput, startDateFail))
+          return alert('Invalid start date');
+        if (!validEndDate(startDateInput, endDateInput, endDateFail))
+          return alert('Invalid end date');
+        if (
+          !validEndTime(
+            startDateInput,
+            endDateInput,
+            startTimeInput,
+            endTimeInput,
+            endTimeFail
+          )
+        )
+          return alert('Invalid end time');
+        if (!validPax()) return alert('Invalid pax');
+
+        const user = Auth.getSession();
+        const booking = {
+          venueSlug: loadedHall.slug,
+          type: typeInput.value,
+          startDate: startDateInput.value,
+          endDate: endDateInput.value,
+          startTime: startTimeInput.value,
+          endTime: endTimeInput.value,
+          pax: paxInput.value
+        };
+
+        const newUser = User.setBooking(user.email, booking);
+        Auth.createSession(newUser);
+
+        bookingForm.reset();
+
+        const toDashboard = confirm('Booking confirmed. Go to dashboard?');
+        if (toDashboard) return (window.location = 'dashboard.html');
+
+        modal.removeAttribute('data-open');
+      });
+    </script>
+  </body>
+</html>

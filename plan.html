@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventSphere - Plan an Event</title>
+    <link rel="stylesheet" href="static/style.css" />
+  </head>
+  <body onload="loadHalls()">
+    <header class="navbar">
+      <a class="navbar__logo" href="index.html">
+        <img src="static/img/logos/mini.svg" alt="mini-logo" />
+      </a>
+
+      <nav class="navbar__links">
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a aria-current="page" href="plan.html">Plan an Event</a></li>
+          <li><a href="consult.html">Book a Consultation</a></li>
+          <li><a href="gallery.html">Event Gallery</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+
+        <div class="navbar__links__burger">
+          <label for="burger" aria-label="Burger toggler"></label>
+          <input
+            type="checkbox"
+            name="burger"
+            id="burger"
+            role="menuitem"
+            aria-label="Toggle burger menu"
+            hidden
+          />
+        </div>
+      </nav>
+    </header>
+
+    <main class="plan">
+      <section class="plan__search">
+        <h1>Find the Perfect Venue</h1>
+
+        <form method="GET" class="card">
+          <div class="card__content">
+            <div class="input-container">
+              <label for="type">Event Type</label>
+              <select name="type" id="type">
+                <option value="" disabled selected>
+                  What type of event are you planning?
+                </option>
+                <option value="Annual Dinner">Annual Dinner</option>
+                <option value="Function Hall">Function Hall</option>
+                <option value="Exhibition">Exhibition</option>
+                <option value="Conference">Conference</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Fashion Shows">Fashion Shows</option>
+              </select>
+            </div>
+
+            <div class="input-container">
+              <label for="location">Location</label>
+              <select name="location" id="location">
+                <option value="" disabled selected>All Locations</option>
+                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                <option value="Putrajaya">Putrajaya</option>
+                <option value="Johor">Johor</option>
+                <option value="Ipoh">Ipoh</option>
+                <option value="Penang">Penang</option>
+                <option value="Selangor">Selangor</option>
+              </select>
+            </div>
+
+            <div class="modal" data-modal="pax">
+              <div class="modal__container">
+                <div class="modal__container__header">
+                  <h2 class="modal__title">Please state the number of pax</h2>
+                  <button type="button" role="menuitem">
+                    <img src="static/img/icons/close.svg" alt="close-btn" />
+                  </button>
+                </div>
+                <div class="input-container">
+                  <label for="pax">Number of Pax</label>
+                  <input type="number" name="pax" id="pax" value="1" min="1" />
+                </div>
+              </div>
+            </div>
+
+            <div class="modal" data-modal="budget">
+              <div class="modal__container">
+                <div class="modal__container__header">
+                  <h2>Please state your event budget</h2>
+                  <button type="button" role="menuitem">
+                    <img src="static/img/icons/close.svg" alt="close-btn" />
+                  </button>
+                </div>
+
+                <div class="input-container">
+                  <label for="max-budget">Maximum</label>
+                  <input
+                    type="number"
+                    name="max-budget"
+                    id="max-budget"
+                    value="1000"
+                    min="0"
+                  />
+                </div>
+
+                <div class="input-container">
+                  <label for="min-budget">Minimum</label>
+                  <input
+                    type="number"
+                    name="min-budget"
+                    id="min-budget"
+                    value="0"
+                    min="0"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="search__options">
+              <button type="button" class="btn" data-modal="pax">
+                Number of Pax
+              </button>
+              <button type="button" class="btn" data-modal="budget">
+                Budget
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="filter">
+        <h2>Venues</h2>
+        <div id="halls-list" class="grid"></div>
+      </section>
+    </main>
+
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/utils/modal.js"></script>
+    <script src="static/js/models/halls.js"></script>
+
+    <script>
+      const hallType = document.getElementById('type');
+      const hallLocation = document.getElementById('location');
+      const pax = document.getElementById('pax');
+      const maxBudget = document.getElementById('max-budget');
+      const minBudget = document.getElementById('min-budget');
+
+      const filterHalls = () => {
+        if (isNaN(parseInt(pax.value))) pax.value = '1';
+        if (isNaN(parseInt(maxBudget.value))) maxBudget.value = '1000';
+        if (isNaN(parseInt(minBudget.value))) minBudget.value = '0';
+
+        const paxValue = parseInt(pax.value);
+        const minBudgetValue = parseInt(minBudget.value);
+        const maxBudgetValue = parseInt(maxBudget.value);
+
+        filteredHalls = halls.filter((hall) => {
+          const totalPrice = hall.pricePerPax * paxValue;
+
+          if (
+            hall.type === hallType.value &&
+            hall.location === hallLocation.value &&
+            hall.maxPax >= paxValue &&
+            totalPrice >= minBudgetValue &&
+            totalPrice <= maxBudgetValue
+          ) {
+            return true;
+          }
+
+          if (
+            hall.type === hallType.value &&
+            hallLocation.value === '' &&
+            hall.maxPax >= paxValue &&
+            totalPrice >= minBudgetValue &&
+            totalPrice <= maxBudgetValue
+          ) {
+            return true;
+          }
+
+          if (
+            hall.location === hallLocation.value &&
+            hallType.value === '' &&
+            hall.maxPax >= paxValue &&
+            totalPrice >= minBudgetValue &&
+            totalPrice <= maxBudgetValue
+          ) {
+            return true;
+          }
+
+          if (
+            hallLocation.value == '' &&
+            hallType.value === '' &&
+            hall.maxPax >= paxValue &&
+            totalPrice >= minBudgetValue &&
+            totalPrice <= maxBudgetValue
+          ) {
+            return true;
+          }
+
+          return false;
+        });
+
+        loadHalls();
+      };
+
+      hallType.addEventListener('input', filterHalls);
+      hallLocation.addEventListener('input', filterHalls);
+      pax.addEventListener('input', filterHalls);
+      maxBudget.addEventListener('input', filterHalls);
+      minBudget.addEventListener('input', filterHalls);
+
+      const searchParams = new URLSearchParams(window.location.search);
+      const paramType = searchParams.get('type');
+      const paramLocation = searchParams.get('location');
+
+      if (paramType) hallType.value = paramType;
+      if (paramLocation) hallLocation.value = paramLocation;
+      filterHalls();
+    </script>
+  </body>
+</html>

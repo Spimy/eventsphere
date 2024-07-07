@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventSphere - Planner</title>
+    <link rel="stylesheet" href="static/style.css" />
+  </head>
+  <body onload="loadPlanner()">
+    <header class="navbar">
+      <a class="navbar__logo" href="index.html">
+        <img src="static/img/logos/mini.svg" alt="mini-logo" />
+      </a>
+
+      <nav class="navbar__links">
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="plan.html">Plan an Event</a></li>
+          <li>
+            <a aria-current="page" href="consult.html">Book a Consultation</a>
+          </li>
+          <li><a href="gallery.html">Event Gallery</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+
+        <div class="navbar__links__burger">
+          <label for="burger" aria-label="Burger toggler"></label>
+          <input
+            type="checkbox"
+            name="burger"
+            id="burger"
+            role="menuitem"
+            aria-label="Toggle burger menu"
+            hidden
+          />
+        </div>
+      </nav>
+    </header>
+
+    <main class="planner">
+      <section id="planner-details" class="planner__details"></section>
+      <section id="planner-description" class="planner__description"></section>
+
+      <div class="modal" data-modal="contact">
+        <form method="GET" name="contact" class="modal__container">
+          <div class="modal__container__header">
+            <h2 class="modal__title">Contact Me</h2>
+            <button type="button" role="menuitem">
+              <img src="static/img/icons/close.svg" alt="close-btn" />
+            </button>
+          </div>
+
+          <div class="input-container">
+            <label for="message">Ask me anything</label>
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Your message here"
+              rows="10"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </main>
+
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/models/planners.js"></script>
+    <script src="static/js/utils/markdown.js"></script>
+    <script src="static/js/utils/modal.js"></script>
+
+    <script>
+      const loadPlanner = () => {
+        const slug = new URLSearchParams(window.location.search).get('slug');
+        const planner = planners.find((hall) => hall.slug === slug);
+
+        const plannerDescription = document.getElementById(
+          'planner-description'
+        );
+
+        if (!planner) {
+          plannerDescription.innerHTML = `
+            <h1>404 Unknown Planner</h1>
+            <a class="btn" href="consult.html">Back</a>
+          `;
+
+          plannerDescription.style.display = 'grid';
+          plannerDescription.style.placeContent = 'center';
+          plannerDescription.style.gap = '0.5rem';
+          plannerDescription.style.textAlign = 'center';
+
+          return;
+        }
+
+        document.title = `EventSphere - ${planner.name}`;
+
+        const card = document.createElement('article');
+        card.classList.add('card');
+
+        card.innerHTML = `
+          <header class="card__image">
+            <img src="${planner.banner}" alt="${planner.name}" />
+          </header>
+
+          <main class="card__content">
+            <div class="card__content__info">
+              <h2>${planner.name}</h2>
+              <p class="rating">
+                ${'★'.repeat(planner.rating)}${'☆'.repeat(5 - planner.rating)}
+              </p>
+              <p class="highlight">${planner.locale} | ${planner.location}</p>
+              <p>MYR ${planner.pricePerHour} per hour</p>
+            </div>
+
+            <div class="card__content__cta">
+              ${planner.socials
+                .map((social) => {
+                  return `
+                  <a href=${social.url} target="_blank">
+                    <img src=${social.icon} alt="social link icon" />
+                  </a>
+                `;
+                })
+                .join('\n')}
+
+              <button type="button" class="btn" data-modal="contact">
+                Contact Now
+              </button>
+            </div>
+          </main>
+        `;
+
+        const plannerDetails = document.getElementById('planner-details');
+        plannerDetails.appendChild(card);
+
+        const description = markdownToHtml(planner.description);
+        plannerDescription.innerHTML = description;
+
+        setupModals();
+      };
+
+      const modal = document.querySelector(`.modal[data-modal="contact"]`);
+      if (!Auth.getSession()) {
+        modal.innerHTML = `
+          <div class="modal__container">
+          <div class="modal__container__header">
+            <h2 class="modal__title">You need to be logged in</h2>
+            <button type="button" role="menuitem">
+              <img src="static/img/icons/close.svg" alt="close-btn" />
+            </button>
+          </div>
+          <a class="btn" href="login.html?next=${window.location}">
+            Login
+          </a>
+        `;
+      }
+
+      const contactForm = document.forms.namedItem('contact');
+      contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+        console.log(formData.get('message'));
+        alert('Message has been sent.');
+
+        contactForm.reset();
+        modal.removeAttribute('data-open');
+      });
+    </script>
+  </body>
+</html>

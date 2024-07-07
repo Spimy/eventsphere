@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventSphere</title>
+    <link rel="stylesheet" href="static/style.css" />
+  </head>
+  <body onload="loadHalls(3)">
+    <header class="navbar">
+      <a class="navbar__logo" href="index.html">
+        <img src="static/img/logos/mini.svg" alt="mini-logo" />
+      </a>
+
+      <nav class="navbar__links">
+        <ul role="list">
+          <li><a aria-current="page" href="index.html">Home</a></li>
+          <li><a href="plan.html">Plan an Event</a></li>
+          <li><a href="consult.html">Book a Consultation</a></li>
+          <li><a href="gallery.html">Event Gallery</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+
+        <div class="navbar__links__burger">
+          <label for="burger" aria-label="Burger toggler"></label>
+          <input
+            type="checkbox"
+            name="burger"
+            id="burger"
+            role="menuitem"
+            aria-label="Toggle burger menu"
+            hidden
+          />
+        </div>
+      </nav>
+    </header>
+
+    <main class="landing">
+      <section class="hero">
+        <div class="hero__about">
+          <img src="./static/img/logos/large-white.svg" alt="large-logo" />
+
+          <p>
+            Explore our diverse collection of event venues and <br />
+            find the perfect fit for your next occasion
+          </p>
+
+          <div class="hero__about__services">
+            <ul role="list">
+              <li><span class="success">✓</span> Browse</li>
+              <li><span class="success">✓</span> Book</li>
+              <li><span class="success">✓</span> Manage</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hero__cta">
+          <form method="GET" action="plan.html">
+            <div class="input-container">
+              <label for="type">Event Type</label>
+              <select name="type" id="type">
+                <option value="" disabled selected>
+                  What type of event are you planning?
+                </option>
+                <option value="Annual Dinner">Annual Dinner</option>
+                <option value="Function Hall">Function Hall</option>
+                <option value="Exhibition">Exhibition</option>
+                <option value="Conference">Conference</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Fashion Shows">Fashion Shows</option>
+              </select>
+            </div>
+
+            <div class="input-container">
+              <label for="location">Location</label>
+              <select name="location" id="location">
+                <option value="" disabled selected>
+                  View Listed Locations
+                </option>
+                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                <option value="Putrajaya">Putrajaya</option>
+                <option value="Johor">Johor</option>
+                <option value="Ipoh">Ipoh</option>
+                <option value="Penang">Penang</option>
+                <option value="Selangor">Selangor</option>
+              </select>
+            </div>
+
+            <button class="btn" type="submit">Search</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="trending">
+        <h1>Trending in Kuala Lumpur</h1>
+        <div id="halls-list" class="grid"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__links">
+        <nav>
+          <ul role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="plan.html">Plan an Event</a></li>
+            <li><a href="consult.html">Book a Consultation</a></li>
+            <li><a href="gallery.html">Event Gallery</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer__copyright">
+        Copyright &copy; 2024 EventSphere - All Rights Reserved
+      </p>
+    </footer>
+
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/models/halls.js"></script>
+  </body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventSphere - Dashboard</title>
+    <link rel="stylesheet" href="static/style.css" />
+  </head>
+  <body onload="loadDashboard()">
+    <header class="navbar">
+      <a class="navbar__logo" href="index.html">
+        <img src="static/img/logos/mini.svg" alt="mini-logo" />
+      </a>
+
+      <nav class="navbar__links">
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="plan.html">Plan an Event</a></li>
+          <li><a href="consult.html">Book a Consultation</a></li>
+          <li><a href="gallery.html">Event Gallery</a></li>
+          <li><a aria-current="page" href="login.html">Login</a></li>
+        </ul>
+
+        <div class="navbar__links__burger">
+          <label for="burger" aria-label="Burger toggler"></label>
+          <input
+            type="checkbox"
+            name="burger"
+            id="burger"
+            role="menuitem"
+            aria-label="Toggle burger menu"
+            hidden
+          />
+        </div>
+      </nav>
+    </header>
+
+    <main class="dashboard">
+      <section id="dashboard-user" class="dashboard__user"></section>
+      <section id="dashboard-events" class="dashboard__events"></section>
+    </main>
+
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/utils/modal.js"></script>
+    <script src="static/js/models/users.js"></script>
+    <script src="static/js/models/halls.js"></script>
+    <script src="static/js/utils/validator.js"></script>
+
+    <script defer>
+      const setupCancelButtons = () => {
+        const cancelButtons = document.querySelectorAll('.cancel');
+
+        cancelButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const modal = button.parentElement.parentElement;
+            const id = modal.getAttribute('data-modal');
+            const user = Auth.getSession();
+
+            const newUser = User.removeBooking(user.email, id);
+            Auth.createSession(newUser);
+
+            location.reload();
+          });
+        });
+      };
+
+      const setupEdit = () => {
+        const startDateInputs = document.querySelectorAll(
+          'input[id^=start-date]'
+        );
+        const endDateInputs = document.querySelectorAll('input[id^=end-date]');
+        const startTimeInputs = document.querySelectorAll(
+          'input[id^=start-time]'
+        );
+        const endTimeInputs = document.querySelectorAll('input[id^=end-time]');
+
+        startDateInputs.forEach((startDateInput) => {
+          const startDateFail = startDateInput.nextSibling.nextSibling;
+          startDateInput.addEventListener('input', () => {
+            validStartDate(startDateInput, startDateFail);
+          });
+        });
+
+        endDateInputs.forEach((endDateInput) => {
+          const modalContainer =
+            endDateInput.parentElement.parentElement.parentElement;
+          const startDateInput = modalContainer.querySelector(
+            'input[id^=start-date]'
+          );
+
+          const endDateFail = endDateInput.nextSibling.nextSibling;
+          endDateInput.addEventListener('input', () => {
+            validEndDate(startDateInput, endDateInput, endDateFail);
+          });
+        });
+
+        endTimeInputs.forEach((endTimeInput) => {
+          const modalContainer =
+            endTimeInput.parentElement.parentElement.parentElement;
+
+          const startDateInput = modalContainer.querySelector(
+            'input[id^=start-date]'
+          );
+          const endDateInput = modalContainer.querySelector(
+            'input[id^=end-date]'
+          );
+          const startTimeInput = modalContainer.querySelector(
+            'input[id^=start-time]'
+          );
+
+          const endTimeFail = endTimeInput.nextSibling.nextSibling;
+          endTimeInput.addEventListener('input', () => {
+            validEndTime(
+              startDateInput,
+              endDateInput,
+              startTimeInput,
+              endTimeInput,
+              endTimeFail
+            );
+          });
+        });
+
+        const forms = document.querySelectorAll('form');
+        forms.forEach((form) => {
+          const startDateInput = form.querySelector('input[id^=start-date]');
+          const endDateInput = form.querySelector('input[id^=end-date]');
+          const startTimeInput = form.querySelector('input[id^=start-time]');
+          const endTimeInput = form.querySelector('input[id^=end-time]');
+
+          const startDateFail = form.querySelector('small[id^=start-date]');
+          const endDateFail = form.querySelector('small[id^=end-date]');
+          const endTimeFail = form.querySelector('small[id^=end-time]');
+
+          form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            if (!validStartDate(startDateInput, startDateFail))
+              return alert('Invalid start date');
+            if (!validEndDate(startDateInput, endDateInput, endDateFail))
+              return alert('Invalid end date');
+            if (
+              !validEndTime(
+                startDateInput,
+                endDateInput,
+                startTimeInput,
+                endTimeInput,
+                endTimeFail
+              )
+            )
+              return alert('Invalid end time');
+
+            const bookingId = form.getAttribute('name');
+            const user = Auth.getSession();
+            const booking = {
+              startDate: startDateInput.value,
+              endDate: endDateInput.value,
+              startTime: startTimeInput.value,
+              endTime: endTimeInput.value
+            };
+
+            const newUser = User.updateBooking(user.email, bookingId, booking);
+            Auth.createSession(newUser);
+
+            form.reset();
+            location.reload();
+          });
+        });
+      };
+
+      const loadDashboard = () => {
+        const user = Auth.getSession();
+        if (!user) {
+          const toLogin = confirm(
+            'You need to be logged in to view this page.'
+          );
+          window.location = toLogin
+            ? `login.html?next=${window.location}`
+            : 'index.html';
+          return;
+        }
+
+        const userInfo = document.getElementById('dashboard-user');
+        const eventsList = document.getElementById('dashboard-events');
+
+        // Load User
+        userInfo.innerHTML = `
+          <h1>Dashboard - ${user.name}</h1>
+          <p>Email: ${user.email}</p>
+        `;
+
+        // Load Events
+        const now = new Date();
+        const current =
+          user.bookings?.filter((b) => new Date(b.endDate) >= now) ?? [];
+        const previous =
+          user.bookings?.filter((b) => new Date(b.endDate) < now) ?? [];
+
+        const listDiv = document.createElement('div');
+        listDiv.classList.add('dashboard__events__list');
+        listDiv.classList.add('card');
+
+        const logoutButton = document.createElement('button');
+        logoutButton.classList.add('btn');
+        logoutButton.classList.add('cancel');
+        logoutButton.innerHTML = 'Logout';
+
+        logoutButton.addEventListener('click', () => {
+          Auth.deleteSession();
+          alert('You have been logged out');
+          window.location = 'index.html';
+        });
+
+        if (!current.length && !previous.length) {
+          listDiv.innerHTML = `
+            <h2 style="margin-bottom: 1rem;">No bookings yet.</h2>
+            <a href="plan.html" class="btn">Book Now</a>
+          `;
+
+          eventsList.appendChild(listDiv);
+          eventsList.appendChild(logoutButton);
+          return;
+        }
+
+        const currentListDiv = document.createElement('div');
+        currentListDiv.classList.add('dashboard__events__list--current');
+
+        currentListDiv.innerHTML = `
+            <h2>Current Events</h2>
+
+            <ul role="list">
+            ${current
+              .map((booking) => {
+                const hall = halls.find(
+                  (hall) => hall.slug === booking.venueSlug
+                );
+
+                const startDate = new Date(booking.startDate).toLocaleString(
+                  'default',
+                  { day: '2-digit', month: 'long', year: 'numeric' }
+                );
+                const endDate = new Date(booking.endDate).toLocaleString(
+                  'default',
+                  { day: '2-digit', month: 'long', year: 'numeric' }
+                );
+
+                return `
+                <li class="dashboard__events__list__item">
+                  <img
+                    src="${hall.image}"
+                    alt="${hall.slug}"
+                  />
+                  <div class="dashboard__events__list__item__info">
+                    <div>
+                      <h3>${hall.name}</h3>
+                      <p>${startDate} - ${endDate}</p>
+                    </div>
+                    <button type="button" class="btn" data-modal=${booking.id}>
+                      Edit Event
+                    </button>
+                  </div>
+
+                  <div class="modal" data-modal="${booking.id}">
+                    <form method="GET" name="${booking.id}" class="modal__container">
+                      <div class="modal__container__header">
+                        <h2 class="modal__title">Edit Event</h2>
+                        <button type="button" role="menuitem">
+                          <img src="static/img/icons/close.svg" alt="close-btn" />
+                        </button>
+                      </div>
+
+                      <div class="input-separator">
+                        <div class="input-container">
+                          <label for="start-date-${booking.id}">Start Date</label>
+                          <input
+                            type="date"
+                            name="start-date-${booking.id}"
+                            id="start-date-${booking.id}"
+                            value="${booking.startDate}"
+                            required
+                          />
+                          <small id="start-date-${booking.id}-fail" class="fail"></small>
+                        </div>
+                        <div class="input-container">
+                          <label for="end-date-${booking.id}">End Date</label>
+                          <input
+                            type="date"
+                            name="end-date-${booking.id}"
+                            id="end-date-${booking.id}"
+                            value="${booking.endDate}"
+                            required
+                          />
+                          <small id="end-date-${booking.id}-fail" class="fail"></small>
+                        </div>
+                      </div>
+
+                      <div class="input-separator">
+                        <div class="input-container">
+                          <label for="start-time-${booking.id}">Start Time</label>
+                          <input
+                            type="time"
+                            name="start-time-${booking.id}"
+                            id="start-time-${booking.id}"
+                            value="${booking.startTime}"
+                            required
+                          />
+                        </div>
+                        <div class="input-container">
+                          <label for="end-time-${booking.id}">End Time</label>
+                          <input
+                            type="time"
+                            name="end-time-${booking.id}"
+                            id="end-time-${booking.id}"
+                            value="${booking.endTime}"
+                            required
+                          />
+                          <small id="end-time-${booking.id}-fail" class="fail"></small>
+                        </div>
+                      </div>
+
+                      <button type="submit" class="btn">Update Booking</button>
+                      <button type="button" class="btn cancel">Cancel Booking</button>
+                    </form>
+                  </div>
+                </li>
+              `;
+              })
+              .join('\n')}
+            </ul>
+        `;
+
+        const previousListDiv = document.createElement('div');
+        previousListDiv.classList.add('dashboard__events__list--previous');
+
+        previousListDiv.innerHTML = `
+          <h2>Previous Events</h2>
+
+          <ul role="list">
+            ${previous
+              .map((booking) => {
+                const hall = halls.find(
+                  (hall) => hall.slug === booking.venueSlug
+                );
+
+                const startDate = new Date(booking.startDate).toLocaleString(
+                  'default',
+                  { day: '2-digit', month: 'long', year: 'numeric' }
+                );
+                const endDate = new Date(booking.endDate).toLocaleString(
+                  'default',
+                  { day: '2-digit', month: 'long', year: 'numeric' }
+                );
+
+                return `
+                <li class="dashboard__events__list__item">
+                  <img
+                    src="${hall.image}"
+                    alt="${hall.slug}"
+                  />
+                  <div class="dashboard__events__list__item__info">
+                    <div>
+                      <h3>${hall.name}</h3>
+                      <p>${startDate} - ${endDate}</p>
+                    </div>
+                    <a class="btn" href="hall.html?slug=${hall.slug}">
+                      Book Again
+                    </a>
+                  </div>
+                </li>
+              `;
+              })
+              .join('\n')}
+          </ul>
+        `;
+
+        if (current.length > 0) listDiv.appendChild(currentListDiv);
+        if (previous.length > 0) listDiv.appendChild(previousListDiv);
+
+        eventsList.appendChild(listDiv);
+        eventsList.appendChild(logoutButton);
+
+        setupModals();
+
+        setupEdit();
+        setupCancelButtons();
+      };
+    </script>
+  </body>
+</html>

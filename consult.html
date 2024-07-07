@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventSphere - Plan an Event</title>
+    <link rel="stylesheet" href="static/style.css" />
+  </head>
+  <body onload="loadPlanners()">
+    <header class="navbar">
+      <a class="navbar__logo" href="index.html">
+        <img src="static/img/logos/mini.svg" alt="mini-logo" />
+      </a>
+      <nav class="navbar__links">
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="plan.html">Plan an Event</a></li>
+          <li>
+            <a aria-current="page" href="consult.html">Book a Consultation</a>
+          </li>
+          <li><a href="gallery.html">Event Gallery</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+
+        <div class="navbar__links__burger">
+          <label for="burger" aria-label="Burger toggler"></label>
+          <input
+            type="checkbox"
+            name="burger"
+            id="burger"
+            role="menuitem"
+            aria-label="Toggle burger menu"
+            hidden
+          />
+        </div>
+      </nav>
+    </header>
+
+    <main class="consult">
+      <section class="consult__search">
+        <h1>Need help planning an event?</h1>
+        <h2>We plan. You enjoy.</h2>
+
+        <form method="GET" name="filter" class="card">
+          <div class="card__content">
+            <h3>Let us find a suitable event planner for you</h3>
+
+            <div class="input-container">
+              <label for="type">Event Type</label>
+              <select id="type" name="type">
+                <option value="" disabled selected>
+                  What type of event are you planning?
+                </option>
+                <option value="Annual Dinner">Annual Dinner</option>
+                <option value="Function Hall">Function Hall</option>
+                <option value="Exhibition">Exhibition</option>
+                <option value="Conference">Conference</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Fashion Shows">Fashion Shows</option>
+              </select>
+            </div>
+
+            <div class="input-container">
+              <label for="location">Location</label>
+              <select id="location" name="location">
+                <option value="" disabled selected>
+                  View Listed Locations
+                </option>
+                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                <option value="Putrajaya">Putrajaya</option>
+                <option value="Johor">Johor</option>
+                <option value="Ipoh">Ipoh</option>
+                <option value="Penang">Penang</option>
+                <option value="Selangor">Selangor</option>
+              </select>
+            </div>
+
+            <button class="btn hero__btn">Find Event Planner</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="planners" class="consult__planners">
+        <h2 class="consult__planners__title">Our Event Planners</h2>
+
+        <div id="planners-list" class="grid"></div>
+      </section>
+    </main>
+
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/models/planners.js"></script>
+
+    <script>
+      const form = document.forms.namedItem('filter');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const plannerType = document.getElementById('type');
+        const plannerLocation = document.getElementById('location');
+
+        filteredPlanners = planners.filter((planner) => {
+          return (
+            (planner.type === plannerType.value &&
+              planner.location === plannerLocation.value) ||
+            (plannerType.value === '' &&
+              planner.location === plannerLocation.value) ||
+            (planner.type === plannerType.value && plannerLocation.value === '')
+          );
+        });
+
+        loadPlanners();
+        window.location.hash = '#planners';
+
+        form.reset();
+      });
+    </script>
+  </body>
+</html>

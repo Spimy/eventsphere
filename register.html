@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventSphere - Register</title>
+    <link rel="stylesheet" href="static/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a class="navbar__logo" href="index.html">
+        <img src="static/img/logos/mini.svg" alt="mini-logo" />
+      </a>
+      <nav class="navbar__links">
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="plan.html">Plan an Event</a></li>
+          <li><a href="consult.html">Book a Consultation</a></li>
+          <li><a href="gallery.html">Event Gallery</a></li>
+          <li><a aria-current="page" href="login.html">Login</a></li>
+        </ul>
+
+        <div class="navbar__links__burger">
+          <label for="burger" aria-label="Burger toggler"></label>
+          <input
+            type="checkbox"
+            name="burger"
+            id="burger"
+            role="menuitem"
+            aria-label="Toggle burger menu"
+            hidden
+          />
+        </div>
+      </nav>
+    </header>
+
+    <main class="register">
+      <section class="register__form">
+        <form name="registration" method="GET">
+          <h1>Register</h1>
+
+          <div class="input-container">
+            <label for="name">Please provide your full name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Your Name"
+              required
+            />
+          </div>
+
+          <div class="input-container">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="username@example.com"
+              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+              required
+            />
+            <small id="email-fail" class="fail"></small>
+          </div>
+
+          <div class="input-container">
+            <label for="phone">Phone no.</label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="0xx-xxxxxxxx"
+              pattern="0\d{2}-\d{7}"
+              required
+            />
+            <small id="phone-fail" class="fail"></small>
+          </div>
+
+          <div class="input-container">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="●●●●●●●●"
+              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+              required
+            />
+            <small id="password-fail" class="fail"></small>
+          </div>
+
+          <div class="input-container">
+            <label for="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              name="confirm-password"
+              id="confirm-password"
+              placeholder="●●●●●●●●"
+              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+              required
+            />
+            <small id="confirm-password-fail" class="fail"></small>
+          </div>
+
+          <div>
+            <a href="login.html">Already have an account?</a>
+            <button class="btn" type="submit">Register</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/models/users.js"></script>
+
+    <script>
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const phoneInput = document.getElementById('phone');
+      const passwordInput = document.getElementById('password');
+      const confirmPasswordInput = document.getElementById('confirm-password');
+
+      const emailFail = document.getElementById('email-fail');
+      const phoneFail = document.getElementById('phone-fail');
+      const passwordFail = document.getElementById('password-fail');
+      const confirmPasswordFail = document.getElementById(
+        'confirm-password-fail'
+      );
+
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const phoneRegex = /^0\d{2}-\d{7}$/;
+      const passwordRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+      emailInput.addEventListener('input', () => {
+        emailFail.innerHTML = emailRegex.test(emailInput.value)
+          ? ''
+          : 'Not a valid email address';
+      });
+
+      phoneInput.addEventListener('input', () => {
+        // Remove non-digit characters
+        let inputValue = phoneInput.value.replace(/\D/g, '');
+
+        inputValue =
+          !inputValue || inputValue.length < 3
+            ? inputValue
+            : `${inputValue.slice(0, 3)}-${inputValue.slice(3, 10)}`;
+
+        phoneInput.value = inputValue;
+
+        phoneFail.innerHTML = phoneRegex.test(phoneInput.value)
+          ? ''
+          : 'Phone must follow the format: 0xx-xxxxxxxx';
+      });
+
+      const checkPasswordMatch = () => {
+        if (passwordInput.value === confirmPasswordInput.value) {
+          confirmPasswordFail.innerHTML = '';
+          return true;
+        }
+
+        confirmPasswordFail.innerHTML = 'Password does not match';
+        return false;
+      };
+
+      passwordInput.addEventListener('input', () => {
+        checkPasswordMatch();
+
+        if (passwordInput.value.length < 8) {
+          passwordFail.innerHTML =
+            'Password must be at least 8 characters long';
+          return;
+        }
+
+        passwordFail.innerHTML = passwordRegex.test(passwordInput.value)
+          ? ''
+          : 'Password must contain at least one upper and lower case letter, at least one digit and at least one of: @$!%*?&';
+      });
+
+      confirmPasswordInput.addEventListener('input', checkPasswordMatch);
+
+      // Handle form submission
+      const form = document.forms.namedItem('registration');
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (!emailRegex.test(emailInput.value))
+          return alert('Email does not match format');
+        if (!phoneRegex.test(phoneInput.value))
+          return alert('Phone does not match format');
+        if (!passwordRegex.test(passwordInput.value))
+          return alert('Password does not match format');
+        if (!checkPasswordMatch()) return alert('Passwords do not match');
+
+        const newUser = {
+          name: nameInput.value.trim(),
+          email: emailInput.value.trim(),
+          phone: phoneInput.value,
+          password: passwordInput.value
+        };
+
+        const success = await User.save(newUser);
+        if (!success) return alert('Email already registered');
+
+        form.reset();
+        alert('Successfully registered, login to continue');
+
+        const from = new URLSearchParams(window.location.search).get('from');
+        window.location = from ? from : 'login.html';
+      });
+    </script>
+  </body>
+</html>
