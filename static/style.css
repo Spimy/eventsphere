@@ -32,7 +32,6 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -464,6 +463,7 @@ section {
   align-items: center;
   text-align: center;
   position: relative;
+  margin-top: 1.2rem;
   z-index: -1;
 }
 
