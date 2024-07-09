@@ -118,11 +118,12 @@
 
         filteredPlanners = planners.filter((planner) => {
           return (
-            (planner.type === plannerType.value &&
+            (planner.type.includes(plannerType.value) &&
               planner.location === plannerLocation.value) ||
             (plannerType.value === '' &&
               planner.location === plannerLocation.value) ||
-            (planner.type === plannerType.value && plannerLocation.value === '')
+            (planner.type.includes(plannerType.value) &&
+              plannerLocation.value === '')
           );
         });
 

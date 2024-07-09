@@ -13,7 +13,7 @@ const halls = [
       'static/img/halls/ritz-carlton/gallery/2.jpeg',
       'static/img/halls/ritz-carlton/gallery/3.jpeg'
     ],
-    type: 'Annual Dinner',
+    type: ['Annual Dinner', 'Wedding'],
     description: `
       The Ritz-Carlton is a nice hotel... blah blah
 
@@ -45,7 +45,7 @@ const halls = [
       'static/img/halls/glasshouse-seputeh/gallery/2.jpeg',
       'static/img/halls/glasshouse-seputeh/gallery/3.webp'
     ],
-    type: 'Wedding',
+    type: ['Wedding', 'Function Hall'],
     description: `
       The Glasshouse is a nice hotel... blah blah
 
@@ -77,7 +77,7 @@ const halls = [
       'static/img/halls/st-regis/gallery/2.jpg',
       'static/img/halls/st-regis/gallery/3.jpg'
     ],
-    type: 'Exhibition',
+    type: ['Exhibition'],
     description: `
       The St. Regis is a nice hotel... blah blah
 
@@ -108,7 +108,7 @@ const halls = [
       'static/img/halls/klcc/gallery/1.jpg',
       'static/img/halls/klcc/gallery/2.jpg'
     ],
-    type: 'Exhibition',
+    type: ['Exhibition'],
     description: `
       The St. Regis is a nice hotel... blah blah
 
@@ -140,7 +140,7 @@ const halls = [
       'static/img/halls/klpac/gallery/2.jpg',
       'static/img/halls/klpac/gallery/3.jpg'
     ],
-    type: 'Exhibition',
+    type: ['Exhibition'],
     description: `
       The St. Regis is a nice hotel... blah blah
 
@@ -171,7 +171,7 @@ const halls = [
       'static/img/halls/doubletree/gallery/1.webp',
       'static/img/halls/doubletree/gallery/2.png'
     ],
-    type: 'Exhibition',
+    type: ['Exhibition', 'Conference'],
     description: `
       The St. Regis is a nice hotel... blah blah
 
@@ -203,7 +203,7 @@ const halls = [
       'static/img/halls/spcc/gallery/2.jpg',
       'static/img/halls/spcc/gallery/3.jpg'
     ],
-    type: 'Exhibition',
+    type: ['Exhibition'],
     description: `
       The St. Regis is a nice hotel... blah blah
 
@@ -235,7 +235,7 @@ const halls = [
       'static/img/halls/dewan-budaya/gallery/2.jpg',
       'static/img/halls/dewan-budaya/gallery/3.jpg'
     ],
-    type: 'Exhibition',
+    type: ['Exhibition'],
     description: `
       The St. Regis is a nice hotel... blah blah
 
@@ -267,7 +267,7 @@ const halls = [
       'static/img/halls/pulai-spring-resort/gallery/2.jpg',
       'static/img/halls/pulai-spring-resort/gallery/3.jpg'
     ],
-    type: 'Exhibition',
+    type: ['Exhibition'],
     description: `
       The St. Regis is a nice hotel... blah blah
 
@@ -299,7 +299,7 @@ const halls = [
       'static/img/halls/db-ratt/gallery/2.jpg',
       'static/img/halls/db-ratt/gallery/3.jpg'
     ],
-    type: 'Exhibition',
+    type: ['Annual Dinner'],
     description: `
       The St. Regis is a nice hotel... blah blah
 

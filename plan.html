@@ -178,7 +178,7 @@
           const totalPrice = hall.pricePerPax * paxValue;
 
           if (
-            hall.type === hallType.value &&
+            hall.type.includes(hallType.value) &&
             hall.location === hallLocation.value &&
             hall.maxPax >= paxValue &&
             totalPrice >= minBudgetValue &&
@@ -188,7 +188,7 @@
           }
 
           if (
-            hall.type === hallType.value &&
+            hall.type.includes(hallType.value) &&
             hallLocation.value === '' &&
             hall.maxPax >= paxValue &&
             totalPrice >= minBudgetValue &&

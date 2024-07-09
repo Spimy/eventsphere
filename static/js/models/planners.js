@@ -7,7 +7,7 @@ const planners = [
     rating: 4,
     locale: 'Bukit Bintang',
     location: 'Kuala Lumpur',
-    type: 'Annual Dinner',
+    type: ['Annual Dinner'],
     pricePerHour: 50,
     socials: [
       {
@@ -30,7 +30,7 @@ const planners = [
     rating: 3,
     locale: 'Bukit Bintang',
     location: 'Kuala Lumpur',
-    type: 'Function Hall',
+    type: ['Function Hall', 'Exhibition'],
     pricePerHour: 50,
     socials: [
       {
@@ -53,7 +53,7 @@ const planners = [
     rating: 3,
     locale: 'Bukit Bintang',
     location: 'Kuala Lumpur',
-    type: 'Wedding',
+    type: ['Wedding'],
     pricePerHour: 50,
     socials: [
       {
@@ -76,7 +76,7 @@ const planners = [
     rating: 5,
     locale: 'Bukit Bintang',
     location: 'Kuala Lumpur',
-    type: 'Exhibition',
+    type: ['Exhibition'],
     pricePerHour: 50,
     socials: [
       {
