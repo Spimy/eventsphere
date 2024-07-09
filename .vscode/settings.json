@@ -1,9 +1,0 @@
-{
-  "liveServer.settings.port": 8080,
-  "liveServer.settings.https": {
-    "enable": true,
-    "cert": "E:Projects\\04_University\\03_Web Fundamentals\\Assignment\\keys\\private.crt",
-    "key": "E:Projects\\04_University\\03_Web Fundamentals\\Assignment\\keys\\private.key",
-    "passphrase": "12345"
-  }
-}
