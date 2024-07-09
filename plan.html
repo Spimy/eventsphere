@@ -40,7 +40,7 @@
       <section class="plan__search">
         <h1>Find the Perfect Venue</h1>
 
-        <form method="GET" class="card">
+        <form method="GET" name="filter" class="card">
           <div class="card__content">
             <h3>Let us find a suitable venue for you</h3>
 
@@ -232,7 +232,7 @@
       minBudget.addEventListener('input', filterHalls);
 
       // Timeout ensures the form inputs are empty
-      const form = document.querySelector('form');
+      const form = document.forms.namedItem('filter');
       form.addEventListener('reset', () => setTimeout(filterHalls, 1));
 
       const searchParams = new URLSearchParams(window.location.search);
