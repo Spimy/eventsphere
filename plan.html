@@ -128,6 +128,8 @@
                 Budget
               </button>
             </div>
+
+            <button type="reset" class="btn cancel">Reset</button>
           </div>
         </form>
       </section>
@@ -228,6 +230,10 @@
       pax.addEventListener('input', filterHalls);
       maxBudget.addEventListener('input', filterHalls);
       minBudget.addEventListener('input', filterHalls);
+
+      // Timeout ensures the form inputs are empty
+      const form = document.querySelector('form');
+      form.addEventListener('reset', () => setTimeout(filterHalls, 1));
 
       const searchParams = new URLSearchParams(window.location.search);
       const paramType = searchParams.get('type');
