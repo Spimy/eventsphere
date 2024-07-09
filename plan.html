@@ -167,10 +167,28 @@
       const maxBudget = document.getElementById('max-budget');
       const minBudget = document.getElementById('min-budget');
 
+      let paxBuffer = pax.value;
+      let maxBudgetBuffer = maxBudget.value;
+      let minBudgetBuffer = minBudget.value;
+
+      const handleBadNumInputs = (numInput, buffer) => {
+        if (isNaN(parseInt(numInput.value))) {
+          if (!numInput.validity.badInput) {
+            if (numInput.value === '') buffer = '';
+          }
+
+          numInput.value = buffer;
+          return buffer;
+        }
+
+        buffer = numInput.value;
+        return buffer;
+      };
+
       const filterHalls = () => {
-        if (isNaN(parseInt(pax.value))) pax.value = '1';
-        if (isNaN(parseInt(maxBudget.value))) maxBudget.value = '1000';
-        if (isNaN(parseInt(minBudget.value))) minBudget.value = '0';
+        paxBuffer = handleBadNumInputs(pax, paxBuffer);
+        maxBudgetBuffer = handleBadNumInputs(maxBudget, maxBudgetBuffer);
+        minBudgetBuffer = handleBadNumInputs(minBudget, minBudgetBuffer);
 
         const paxValue = parseInt(pax.value);
         const minBudgetValue = parseInt(minBudget.value);
