@@ -179,9 +179,11 @@
           })
           .join('\n');
 
-        typeInput.innerHTML = `
-          <option value="${hall.type}" selected>${hall.type}</option>
-        `;
+        typeInput.innerHTML = hall.type
+          .map((t) => {
+            return `<option value="${t}" selected>${t}</option>`;
+          })
+          .join('\n');
 
         const card = document.createElement('article');
         card.classList.add('card');
