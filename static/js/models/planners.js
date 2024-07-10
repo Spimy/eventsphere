@@ -3,12 +3,12 @@ const planners = [
     slug: 'lai-yung-wei',
     name: 'Lai Yung Wei',
     profilePhoto: 'static/img/planners/lai-yung-wei/profile.jpg',
-    banner: 'static/img/planners/lai-yung-wei/profile.jpg',
+    banner: 'static/img/planners/lai-yung-wei/banner.jpg',
     rating: 4,
     locale: 'Bukit Bintang',
     location: 'Kuala Lumpur',
-    type: ['Annual Dinner'],
-    pricePerHour: 50,
+    type: ['Fashion Shows', 'Function Hall'],
+    pricePerHour: 80,
     socials: [
       {
         icon: 'static/img/icons/socials/linkedin.svg',
@@ -20,7 +20,7 @@ const planners = [
       }
     ],
     description:
-      'Lai has vast experience in event planning with a finance background. He started his career in finance, overseeing high-stakes corporate and investor meetings for his company, which made him acquire a very high sense of precision and organisation. He later moved to the technology industry working on planning for large-scale product launches and international conferences. Only when he spent time as a project manager with one of the top advertising agencies did he develop truly creative and strategic planning skills. With his wide-ranging knowledge, Lai ensures that every event is produced with perfection, hence amazed by all the people in attendance.'
+      '### Lai started his career by organizing frequent shows, he paid great attention to details in arranging runways and coordinating with designer access and model management to get the best result from his shows. He also concurrently organized different events in function halls such as corporate functions and social events. He handled the setup of the venue including seating arrangement and stage setup, catering, and entertainment. Through this, he has gained vast experience organizing fashion shows and events in function halls, making him suitable for planning events related to fashion shows or when a function hall is needed.'
   },
   {
     slug: 'william-law',
@@ -30,8 +30,8 @@ const planners = [
     rating: 3,
     locale: 'Bukit Bintang',
     location: 'Kuala Lumpur',
-    type: ['Function Hall', 'Exhibition'],
-    pricePerHour: 50,
+    type: ['Conference', 'Annual Dinner'],
+    pricePerHour: 100,
     socials: [
       {
         icon: 'static/img/icons/socials/linkedin.svg',
@@ -43,7 +43,7 @@ const planners = [
       }
     ],
     description:
-      'William started with a career as an executive chef, spending seven years in culinary arts to understand the essence of proper presentation of exquisite details. He then changed over to hospitality management by heading a grand resort for cultivating guest experiences and a larger event organisation. Experience as a public relations manager developed his effective communication and brand management skills. With a mix of culinary, hospitality, and PR expertise, William makes sure that every event is perfectly organised and will remain truly unforgettable.'
+      '### With an overall experience of over 12 years in the pharmaceutical industry, William has won his spurs for organizing high-stakes conferences and exhibitions. Being a senior event coordinator, he has been responsible for the planning and delivery of substantial pharmaceutical conferences. His responsibilities included detailed planning and managing complex scheduling to enable the effective transfer of knowledge and networking opportunities making him extremely suitable for event planning.'
   },
   {
     slug: 'joshua-bonham',
@@ -53,8 +53,8 @@ const planners = [
     rating: 3,
     locale: 'Bukit Bintang',
     location: 'Kuala Lumpur',
-    type: ['Wedding'],
-    pricePerHour: 50,
+    type: ['Wedding', 'Fashion Shows'],
+    pricePerHour: 150,
     socials: [
       {
         icon: 'static/img/icons/socials/linkedin.svg',
@@ -66,18 +66,18 @@ const planners = [
       }
     ],
     description:
-      'Joshua leverages over 12 years of experience in the film industry, where he honed his skills as a shot coordinator, to orchestrate unforgettable events. He brings a further 5 years of expertise from the wedding planning industry and 2 years managing Sunway Got Talent, solidifying his reputation as a world-renowned event planner.'
+      '### Joshua leverages over 12 years of experience in the film industry, where he honed his skills as a shot coordinator, to orchestrate unforgettable events. He brings a further 5 years of expertise from the wedding planning industry and 2 years managing Sunway Got Talent, solidifying his reputation as a world-renowned event planner.'
   },
   {
     slug: 'justin-yong',
     name: 'Justin Yong',
     profilePhoto: 'static/img/planners/justin-yong/profile.jpg',
-    banner: 'static/img/planners/justin-yong/profile.jpg',
+    banner: 'static/img/planners/justin-yong/banner.png',
     rating: 5,
     locale: 'Bukit Bintang',
     location: 'Kuala Lumpur',
-    type: ['Exhibition'],
-    pricePerHour: 50,
+    type: ['Exhibition', 'Annual Dinner'],
+    pricePerHour: 120,
     socials: [
       {
         icon: 'static/img/icons/socials/x.svg',
@@ -93,7 +93,7 @@ const planners = [
       }
     ],
     description:
-      'Justin is an Award-Winning Politician turned event manager. He spent 10 years with the Ministry of Finance before it went bankrupt as a result of too many high-end events. As someone with experience in politics, he is an ideal candidate to plan your next debate or to launch your political campaign.'
+      '### Justin is an Award-Winning Politician turned event manager. He spent 10 years with the Ministry of Finance before it went bankrupt as a result of too many high-end events. As someone with experience in politics, he is an ideal candidate to plan your next debate or to launch your political campaign.'
   }
 ];
 
