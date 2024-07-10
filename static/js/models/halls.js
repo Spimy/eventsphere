@@ -15,14 +15,11 @@ const halls = [
     ],
     type: ['Annual Dinner', 'Wedding', 'Conference'],
     description: `
-      The true definition of luxury is through the very essence of genuine hospitality. 
-      Imagine extraordinary and captivating enclaves, exquisite fine dining, and 
-      well-designed spaces in which to retire. All your needs in lodging are taken 
-      into consideration for either adventure or peaceful retreats.
+      ## The true definition of luxury is through the very essence of genuine hospitality. Imagine extraordinary and captivating enclaves, exquisite fine dining, and well-designed spaces in which to retire.
 
       
       <br />
-      **Amenities**
+      ## **Amenities**
       ✓ Restaurant
       ✓ Spa
       ✓ Fitness Center
@@ -41,7 +38,7 @@ const halls = [
       ✓ Kitchenette
 
       
-      **Add-On Services**
+      ## **Add-On Services**
       * Private Limousine/Van Service
       * Babysitting
     
@@ -63,13 +60,11 @@ const halls = [
     ],
     type: ['Wedding', 'Function Hall', 'Conference'],
     description: `
-      Enjoy the tranquil luxury of Bangi Resort Hotel, located at the peak of Bandar Baru Bangi. 
-      This 5-star resort is accorded with superb views, where every guest is guaranteed a memorable stay, 
-      be it business or pleasure.
+      ## Enjoy the tranquil luxury of Bangi Resort Hotel, located at the peak of Bandar Baru Bangi. This 5-star resort is accorded with superb views, where every guest is guaranteed a memorable stay, be it business or pleasure.
 
 
       <br />
-      **Amenities**
+      ## **Amenities**
       ✓ Free Wi-Fi
       ✓ Restaurants 
       ✓ Spa 
@@ -81,7 +76,7 @@ const halls = [
       ✓ Daily Housekeeping
       ✓ Laundry Service
 
-      **Add-On Services**
+      ## **Add-On Services**
       * Celebrity Chef Dining
       * Event Hosting
     `
@@ -102,13 +97,12 @@ const halls = [
     ],
     type: ['Exhibition', 'Wedding', 'Annual Dinner'],
     description: `
-      Experience luxury like never before where sophistication meets comfort. Located 
-      in the pulsating core of the city, offering facilities that are just out of this world.
+      ## Experience luxury like never before where sophistication meets comfort. Located in the pulsating core of the city, offering facilities that are just out of this world.
 
 
       
       <br />
-      **Amenities**
+      ## **Amenities**
       ✓ Free Wi-Fi
       ✓ Restaurants
       ✓ Fitness Center
@@ -127,7 +121,7 @@ const halls = [
       ✓ Mobile Key
       ✓ Service Request
 
-      **Add-On Services**
+      ## **Add-On Services**
       * Event Management
       * Experimental Dining 
       * Wake up Calls
@@ -149,14 +143,11 @@ const halls = [
     ],
     type: ['Exhibition', 'Conference', 'Annual Dinner'],
     description: `
-      Malaysia's flagship for events, and an award-winning, purpose-built venue, 
-      located in the heart of the city with state-of-the-art facilities for 
-      conferences, exhibitions, and events/ Dine around its world-class dining outlets, 
-      enjoy ease of access, seamless connections, and nearby luxury accommodations.
+      ## Malaysia's flagship for events, and an award-winning, purpose-built venue, located in the heart of the city with state-of-the-art facilities for conferences, exhibitions, and events/ Dine around its world-class dining outlets.
 
       
       <br />
-      **Amenities**
+      ## **Amenities**
       ✓ Free Wi-Fi
       ✓ Exhibition Halls 
       ✓ Meeting Rooms 
@@ -168,7 +159,7 @@ const halls = [
       ✓ On-site Dining availablity
       ✓ On-site Parking
 
-      **Add-On Services**
+      ## **Add-On Services**
       * Event Planning and Management
       * Catering Services
       * Audio-Visual Equipment Rental
@@ -194,12 +185,11 @@ const halls = [
     ],
     type: ['Exhibition', 'Fashion Shows', 'Function Hall'],
     description: `
-      You don't need to search any more for a distinctive location for your performance, gathering, 
-      festival, or photo session. Welcome to KLPAC, an award-winning heritage building
+      ## You don't need to search any more for a distinctive location for your performance, gathering, festival, or photo session. Welcome to KLPAC, an award-winning heritage building
 
       
       <br />
-      **Amenities**
+      ## **Amenities**
       ✓ Theatres
       ✓ Studio Space 
       ✓ Gallery Space 
@@ -207,7 +197,7 @@ const halls = [
       ✓ 35-Acre Park
       ✓ Lake
 
-      **Add-On Services**
+      ## **Add-On Services**
       * Audio Visual Equipment
       * Event Crew
       * Photo Booth
@@ -229,15 +219,12 @@ const halls = [
     ],
     type: ['Exhibition', 'Conference'],
     description: `
-      DoubleTree by Hilton Putrajaya Lakeside is a modern comfort that meets scenic tranquillity. 
-      Be taken away by its top-tiered amenities. Enjoy local and international cuisine in Makan 
-      Kitchen or at the al-fresco dining place called Tasek. The ideal hotel for business and leisure, 
-      it offers vast event spaces and family-friendly activities.
+      ## DoubleTree is a modern comfort that meets scenic tranquillity. Be taken away by its top-tiered amenities. Enjoy local and international cuisine. The ideal hotel for business and leisure, it offers vast event spaces and family-friendly activities.
 
 
       
       <br />
-      **Amenities**
+      ## **Amenities**
       ✓ Free Wi-Fi
       ✓ Connecting Room 
       ✓ Digital Key 
@@ -251,7 +238,7 @@ const halls = [
       ✓ Meeting Rooms
       ✓ Laundry and Dry Cleaning Services
 
-      **Add-On Services**
+      ## **Add-On Services**
       * Event Planning and Management
       * Catering Services
       * Technical Support
@@ -274,13 +261,11 @@ const halls = [
     ],
     type: ['Conference', 'Wedding'],
     description: `
-      Situated in the heart of Sunway, right above Sunway Shopping mall, and near Sunway Resort 
-      Hotel & Spa, Sunway Hotel Pyramid and Sunway Lagoon Hotel, this venue is the most convenient 
-      and ideal space for a large audience of people.
+      ## Situated in the heart of Sunway, right above Sunway Shopping mall, and near Sunway Resort Hotel & Spa, Sunway Hotel Pyramid and Sunway Lagoon Hotel, this venue is the most convenient and ideal space for a large audience of people.
 
       
       <br />
-      **Amenities**
+      ## **Amenities**
       ✓ 7.157 Sq meter Open-plan Convention Centre
       ✓ Function Rooms
       ✓ Ballroom 
@@ -288,7 +273,7 @@ const halls = [
       ✓ Tables and Chairs
       ✓ Free Wi-Fi
 
-      **Add-On Services**
+      ## **Add-On Services**
       * Huge Parking Space
       * 24/7 Security 
       * PlugPoints
@@ -311,18 +296,17 @@ const halls = [
     ],
     type: ['Exhibition', 'Function Hall'],
     description: `
-      This newly renovated historical venue showcases the history of Ipoh through its amazing architecture 
-      and design. It exudes a feeling of antiquity and is perfect for concert productions, weddings and more.
+      ## This newly renovated historical venue showcases the history of Ipoh through its amazing architecture and design. It exudes a feeling of antiquity and is perfect for concert productions, weddings and more.
 
       
       <br />
-      **Amenities**
+      ## **Amenities**
       ✓ Free Wi-Fi
       ✓ Basic PA System 
       ✓ Tables and Chairs 
       ✓ Air Conditions
 
-      **Add-On Services**
+      ## **Add-On Services**
       * 24/7 Security
       * Free Parking 
     `
@@ -343,12 +327,11 @@ const halls = [
     ],
     type: ['Wedding', 'Annual Dinner'],
     description: `
-      Located in Johor, the southernmost state of West Malaysia, Pulai Springs Resort is a recreational area 
-      tucked away in the magnificent Malaysian flora and fauna at the base of Mount Pulai.
+      ## Located in Johor, the southernmost state of West Malaysia, Pulai Springs Resort is a recreational area tucked away in the magnificent Malaysian flora and fauna at the base of Mount Pulai.
 
       
       <br />
-      **Amenities**
+      ## **Amenities**
       ✓ 9 Venue Sections
       ✓ Gymnasium
       ✓ Tables and Chairs 
@@ -357,7 +340,7 @@ const halls = [
       ✓ The Pulai Spa
       ✓ Sports & Recreation
 
-      **Add-On Services**
+      ## **Add-On Services**
       * Event Crew
       * Audio Visual Equipment
       * Catering
@@ -381,19 +364,17 @@ const halls = [
     ],
     type: ['Annual Dinner', 'Conference', 'Wedding'],
     description: `
-      For a business function or dinner, seminar, product launch, training, management meeting, 
-      yearly or family meal, David Brown's is the perfect venue. Outside, David Brown's offers an 
-      amazing view of all the major sites on the Pearl of the Orient as it is situated on top of Penang Hill.
+      ## For a business function or dinner, seminar, product launch, training, management meeting, yearly or family meal, David Brown's is the perfect venue. Outside, David Brown's offers an amazing view of all the major sites on the Pearl of the Orient as it is situated on top of Penang Hill.
 
       
       <br />
-      **Amenities**
+      ## **Amenities**
       ✓ Free Wi-Fi
       ✓ Pond 
       ✓ Tables and Chairs 
       ✓ Garden Area
 
-      **Add-On Services**
+      ## **Add-On Services**
       * Catering
       * Event Mood-Lighting 
       * Audio Visual Equipment
