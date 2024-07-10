@@ -153,7 +153,7 @@ const halls = [
       ✓ Meeting Rooms 
       ✓ Banquet Facilities
       ✓ Auditoriums
-      ✓ Conference Roomsf
+      ✓ Conference Rooms
       ✓ VIP Lounges
       ✓ Business Centre
       ✓ On-site Dining availablity

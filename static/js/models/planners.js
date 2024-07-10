@@ -5,8 +5,8 @@ const planners = [
     profilePhoto: 'static/img/planners/lai-yung-wei/profile.jpg',
     banner: 'static/img/planners/lai-yung-wei/banner.jpg',
     rating: 4,
-    locale: 'Bukit Bintang',
-    location: 'Kuala Lumpur',
+    locale: 'Sunway',
+    location: 'Selangor',
     type: ['Fashion Shows', 'Function Hall'],
     pricePerHour: 80,
     socials: [
@@ -28,8 +28,8 @@ const planners = [
     profilePhoto: 'static/img/planners/william-law/profile.png',
     banner: 'static/img/planners/william-law/banner.jpg',
     rating: 3,
-    locale: 'Bukit Bintang',
-    location: 'Kuala Lumpur',
+    locale: 'Teluk Intan',
+    location: 'Ipoh',
     type: ['Conference', 'Annual Dinner'],
     pricePerHour: 100,
     socials: [
@@ -51,8 +51,8 @@ const planners = [
     profilePhoto: 'static/img/planners/joshua-bonham/profile.png',
     banner: 'static/img/planners/joshua-bonham/banner.png',
     rating: 3,
-    locale: 'Bukit Bintang',
-    location: 'Kuala Lumpur',
+    locale: 'Jelutong ',
+    location: 'Penang',
     type: ['Wedding', 'Fashion Shows'],
     pricePerHour: 150,
     socials: [
