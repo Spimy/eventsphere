@@ -23,22 +23,22 @@ const halls = [
       
       <br />
       **Amenities**
-      * ✓ Restaurant
-      * ✓ Spa
-      * ✓ Fitness Center
-      * ✓ Outdoor Pool
-      * ✓ 24-Hour Room Service
-      * ✓ Daily Housekeeping
-      * ✓ Turndown Service
-      * ✓ Meeting Space
-      * ✓ Gift Shop
-      * ✓ Dry Cleaning Service
-      * ✓ Laundry
-      * ✓ Room Service
-      * ✓ Hair Salon
-      * ✓ Wake-Up Calls
-      * ✓ Free Wi-Fi
-      * ✓ Kitchenette
+      ✓ Restaurant
+      ✓ Spa
+      ✓ Fitness Center
+      ✓ Outdoor Pool
+      ✓ 24-Hour Room Service
+      ✓ Daily Housekeeping
+      ✓ Turndown Service
+      ✓ Meeting Space
+      ✓ Gift Shop
+      ✓ Dry Cleaning Service
+      ✓ Laundry
+      ✓ Room Service
+      ✓ Hair Salon
+      ✓ Wake-Up Calls
+      ✓ Free Wi-Fi
+      ✓ Kitchenette
 
       
       **Add-On Services**
@@ -70,16 +70,16 @@ const halls = [
 
       <br />
       **Amenities**
-      * ✓ Free Wi-Fi
-      * ✓ Restaurants 
-      * ✓ Spa 
-      * ✓ Fitness Center
-      * ✓ Outdoor Pool
-      * ✓ Golf Course
-      * ✓ Meeting Rooms
-      * ✓ Ballroom
-      * ✓ Daily Housekeeping
-      * ✓ Laundry Service
+      ✓ Free Wi-Fi
+      ✓ Restaurants 
+      ✓ Spa 
+      ✓ Fitness Center
+      ✓ Outdoor Pool
+      ✓ Golf Course
+      ✓ Meeting Rooms
+      ✓ Ballroom
+      ✓ Daily Housekeeping
+      ✓ Laundry Service
 
       **Add-On Services**
       * Celebrity Chef Dining
@@ -109,23 +109,23 @@ const halls = [
       
       <br />
       **Amenities**
-      * ✓ Free Wi-Fi
-      * ✓ Restaurants
-      * ✓ Fitness Center
-      * ✓ Outdoor Pool
-      * ✓ Iridium Spa
-      * ✓ Daily Housekeeping
-      * ✓ Meeting Space
-      * ✓ Drawing Rooms
-      * ✓ Bar
-      * ✓ Daily Housekeeping
-      * ✓ Turndown Service
-      * ✓ Dry Cleaning Service
-      * ✓ Laundry
-      * ✓ Kitchen
-      * ✓ Room Service
-      * ✓ Mobile Key
-      * ✓ Service Request
+      ✓ Free Wi-Fi
+      ✓ Restaurants
+      ✓ Fitness Center
+      ✓ Outdoor Pool
+      ✓ Iridium Spa
+      ✓ Daily Housekeeping
+      ✓ Meeting Space
+      ✓ Drawing Rooms
+      ✓ Bar
+      ✓ Daily Housekeeping
+      ✓ Turndown Service
+      ✓ Dry Cleaning Service
+      ✓ Laundry
+      ✓ Kitchen
+      ✓ Room Service
+      ✓ Mobile Key
+      ✓ Service Request
 
       **Add-On Services**
       * Event Management
@@ -157,16 +157,16 @@ const halls = [
       
       <br />
       **Amenities**
-      * ✓ Free Wi-Fi
-      * ✓ Exhibition Halls 
-      * ✓ Meeting Rooms 
-      * ✓ Banquet Facilities
-      * ✓ Auditoriums
-      * ✓ Conference Rooms
-      * ✓ VIP Lounges
-      * ✓ Business Centre
-      * ✓ On-site Dining availablity
-      * ✓ On-site Parking
+      ✓ Free Wi-Fi
+      ✓ Exhibition Halls 
+      ✓ Meeting Rooms 
+      ✓ Banquet Facilities
+      ✓ Auditoriums
+      ✓ Conference Roomsf
+      ✓ VIP Lounges
+      ✓ Business Centre
+      ✓ On-site Dining availablity
+      ✓ On-site Parking
 
       **Add-On Services**
       * Event Planning and Management
@@ -200,12 +200,12 @@ const halls = [
       
       <br />
       **Amenities**
-      * ✓ Theatres
-      * ✓ Studio Space 
-      * ✓ Gallery Space 
-      * ✓ Lawn and Deck Areas
-      * ✓ 35-Acre Park
-      * ✓ Lake
+      ✓ Theatres
+      ✓ Studio Space 
+      ✓ Gallery Space 
+      ✓ Lawn and Deck Areas
+      ✓ 35-Acre Park
+      ✓ Lake
 
       **Add-On Services**
       * Audio Visual Equipment
@@ -238,18 +238,18 @@ const halls = [
       
       <br />
       **Amenities**
-      * ✓ Free Wi-Fi
-      * ✓ Connecting Room 
-      * ✓ Digital Key 
-      * ✓ Spa
-      * ✓ EV Charging
-      * ✓ Executive Lounge
-      * ✓ On-site Restaurant
-      * ✓ Outdoor Pool
-      * ✓ Fitness Center
-      * ✓ Room Service
-      * ✓ Meeting Rooms
-      * ✓ Laundry and Dry Cleaning Services
+      ✓ Free Wi-Fi
+      ✓ Connecting Room 
+      ✓ Digital Key 
+      ✓ Spa
+      ✓ EV Charging
+      ✓ Executive Lounge
+      ✓ On-site Restaurant
+      ✓ Outdoor Pool
+      ✓ Fitness Center
+      ✓ Room Service
+      ✓ Meeting Rooms
+      ✓ Laundry and Dry Cleaning Services
 
       **Add-On Services**
       * Event Planning and Management
@@ -281,12 +281,12 @@ const halls = [
       
       <br />
       **Amenities**
-      * ✓ 7.157 Sq meter Open-plan Convention Centre
-      * ✓ Function Rooms
-      * ✓ Ballroom 
-      * ✓ Air Conditions
-      * ✓ Tables and Chairs
-      * ✓ Free Wi-Fi
+      ✓ 7.157 Sq meter Open-plan Convention Centre
+      ✓ Function Rooms
+      ✓ Ballroom 
+      ✓ Air Conditions
+      ✓ Tables and Chairs
+      ✓ Free Wi-Fi
 
       **Add-On Services**
       * Huge Parking Space
@@ -317,10 +317,10 @@ const halls = [
       
       <br />
       **Amenities**
-      * ✓ Free Wi-Fi
-      * ✓ Basic PA System 
-      * ✓ Tables and Chairs 
-      * ✓ Air Conditions
+      ✓ Free Wi-Fi
+      ✓ Basic PA System 
+      ✓ Tables and Chairs 
+      ✓ Air Conditions
 
       **Add-On Services**
       * 24/7 Security
@@ -349,13 +349,13 @@ const halls = [
       
       <br />
       **Amenities**
-      * ✓ 9 Venue Sections
-      * ✓ Gymnasium
-      * ✓ Tables and Chairs 
-      * ✓ Air Conditions
-      * ✓ Swimming Pools
-      * ✓ The Pulai Spa
-      * ✓ Sports & Recreation
+      ✓ 9 Venue Sections
+      ✓ Gymnasium
+      ✓ Tables and Chairs 
+      ✓ Air Conditions
+      ✓ Swimming Pools
+      ✓ The Pulai Spa
+      ✓ Sports & Recreation
 
       **Add-On Services**
       * Event Crew
@@ -388,10 +388,10 @@ const halls = [
       
       <br />
       **Amenities**
-      * ✓ Free Wi-Fi
-      * ✓ Pond 
-      * ✓ Tables and Chairs 
-      * ✓ Garden Area
+      ✓ Free Wi-Fi
+      ✓ Pond 
+      ✓ Tables and Chairs 
+      ✓ Garden Area
 
       **Add-On Services**
       * Catering
