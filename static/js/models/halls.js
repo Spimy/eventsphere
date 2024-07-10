@@ -13,7 +13,7 @@ const halls = [
       'static/img/halls/ritz-carlton/gallery/2.jpeg',
       'static/img/halls/ritz-carlton/gallery/3.jpeg'
     ],
-    type: ['Annual Dinner', 'Wedding'],
+    type: ['Annual Dinner', 'Wedding', 'Conference'],
     description: `
       The true definition of luxury is through the very essence of genuine hospitality. 
       Imagine extraordinary and captivating enclaves, exquisite fine dining, and 
@@ -61,7 +61,7 @@ const halls = [
       'static/img/halls/glasshouse-seputeh/gallery/2.jpeg',
       'static/img/halls/glasshouse-seputeh/gallery/3.webp'
     ],
-    type: ['Wedding', 'Function Hall'],
+    type: ['Wedding', 'Function Hall', 'Conference'],
     description: `
       Enjoy the tranquil luxury of Bangi Resort Hotel, located at the peak of Bandar Baru Bangi. 
       This 5-star resort is accorded with superb views, where every guest is guaranteed a memorable stay, 
@@ -100,7 +100,7 @@ const halls = [
       'static/img/halls/st-regis/gallery/2.jpg',
       'static/img/halls/st-regis/gallery/3.jpg'
     ],
-    type: ['Exhibition'],
+    type: ['Exhibition', 'Wedding', 'Annual Dinner'],
     description: `
       Experience luxury like never before where sophistication meets comfort. Located 
       in the pulsating core of the city, offering facilities that are just out of this world.
@@ -147,7 +147,7 @@ const halls = [
       'static/img/halls/klcc/gallery/1.jpg',
       'static/img/halls/klcc/gallery/2.jpg'
     ],
-    type: ['Exhibition'],
+    type: ['Exhibition', 'Conference', 'Annual Dinner'],
     description: `
       Malaysia's flagship for events, and an award-winning, purpose-built venue, 
       located in the heart of the city with state-of-the-art facilities for 
@@ -192,7 +192,7 @@ const halls = [
       'static/img/halls/klpac/gallery/2.jpg',
       'static/img/halls/klpac/gallery/3.jpg'
     ],
-    type: ['Exhibition'],
+    type: ['Exhibition', 'Fashion Shows', 'Function Hall'],
     description: `
       You don't need to search any more for a distinctive location for your performance, gathering, 
       festival, or photo session. Welcome to KLPAC, an award-winning heritage building
@@ -272,7 +272,7 @@ const halls = [
       'static/img/halls/spcc/gallery/2.jpg',
       'static/img/halls/spcc/gallery/3.jpg'
     ],
-    type: ['Exhibition'],
+    type: ['Conference', 'Wedding'],
     description: `
       Situated in the heart of Sunway, right above Sunway Shopping mall, and near Sunway Resort 
       Hotel & Spa, Sunway Hotel Pyramid and Sunway Lagoon Hotel, this venue is the most convenient 
@@ -309,7 +309,7 @@ const halls = [
       'static/img/halls/dewan-budaya/gallery/2.jpg',
       'static/img/halls/dewan-budaya/gallery/3.jpg'
     ],
-    type: ['Exhibition'],
+    type: ['Exhibition', 'Function Hall'],
     description: `
       This newly renovated historical venue showcases the history of Ipoh through its amazing architecture 
       and design. It exudes a feeling of antiquity and is perfect for concert productions, weddings and more.
@@ -341,7 +341,7 @@ const halls = [
       'static/img/halls/pulai-spring-resort/gallery/2.jpg',
       'static/img/halls/pulai-spring-resort/gallery/3.jpg'
     ],
-    type: ['Exhibition'],
+    type: ['Wedding', 'Annual Dinner'],
     description: `
       Located in Johor, the southernmost state of West Malaysia, Pulai Springs Resort is a recreational area 
       tucked away in the magnificent Malaysian flora and fauna at the base of Mount Pulai.
@@ -379,7 +379,7 @@ const halls = [
       'static/img/halls/db-ratt/gallery/2.jpg',
       'static/img/halls/db-ratt/gallery/3.jpg'
     ],
-    type: ['Annual Dinner'],
+    type: ['Annual Dinner', 'Conference', 'Wedding'],
     description: `
       For a business function or dinner, seminar, product launch, training, management meeting, 
       yearly or family meal, David Brown's is the perfect venue. Outside, David Brown's offers an 
