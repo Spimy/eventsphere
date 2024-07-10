@@ -20,7 +20,7 @@ const planners = [
       }
     ],
     description:
-      'Crafted unforgettable experiences for over 5 years, transforming vision boards into sold-out conferences, award-winning galas, and engaging product launches. Successfully managed budgets exceeding $200,000, consistently delivering events within budget and on time.'
+      'Lai has vast experience in event planning with a finance background. He started his career in finance, overseeing high-stakes corporate and investor meetings for his company, which made him acquire a very high sense of precision and organisation. He later moved to the technology industry working on planning for large-scale product launches and international conferences. Only when he spent time as a project manager with one of the top advertising agencies did he develop truly creative and strategic planning skills. With his wide-ranging knowledge, Lai ensures that every event is produced with perfection, hence amazed by all the people in attendance.'
   },
   {
     slug: 'william-law',
@@ -43,7 +43,7 @@ const planners = [
       }
     ],
     description:
-      'Crafted unforgettable experiences for over 5 years, transforming vision boards into sold-out conferences, award-winning galas, and engaging product launches. Successfully managed budgets exceeding $200,000, consistently delivering events within budget and on time.'
+      'William started with a career as an executive chef, spending seven years in culinary arts to understand the essence of proper presentation of exquisite details. He then changed over to hospitality management by heading a grand resort for cultivating guest experiences and a larger event organisation. Experience as a public relations manager developed his effective communication and brand management skills. With a mix of culinary, hospitality, and PR expertise, William makes sure that every event is perfectly organised and will remain truly unforgettable.'
   },
   {
     slug: 'joshua-bonham',
@@ -66,7 +66,7 @@ const planners = [
       }
     ],
     description:
-      'Crafted unforgettable experiences for over 5 years, transforming vision boards into sold-out conferences, award-winning galas, and engaging product launches. Successfully managed budgets exceeding $200,000, consistently delivering events within budget and on time.'
+      'Joshua leverages over 12 years of experience in the film industry, where he honed his skills as a shot coordinator, to orchestrate unforgettable events. He brings a further 5 years of expertise from the wedding planning industry and 2 years managing Sunway Got Talent, solidifying his reputation as a world-renowned event planner.'
   },
   {
     slug: 'justin-yong',
@@ -93,7 +93,7 @@ const planners = [
       }
     ],
     description:
-      'Crafted unforgettable experiences for over 5 years, transforming vision boards into sold-out conferences, award-winning galas, and engaging product launches. Successfully managed budgets exceeding $200,000, consistently delivering events within budget and on time.'
+      'Justin is an Award-Winning Politician turned event manager. He spent 10 years with the Ministry of Finance before it went bankrupt as a result of too many high-end events. As someone with experience in politics, he is an ideal candidate to plan your next debate or to launch your political campaign.'
   }
 ];
 
