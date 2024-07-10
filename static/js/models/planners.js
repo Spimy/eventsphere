@@ -3,12 +3,12 @@ const planners = [
     slug: 'lai-yung-wei',
     name: 'Lai Yung Wei',
     profilePhoto: 'static/img/planners/lai-yung-wei/profile.jpg',
-    banner: 'static/img/planners/lai-yung-wei/profile.jpg',
+    banner: 'static/img/planners/lai-yung-wei/banner.jpg',
     rating: 4,
-    locale: 'Bukit Bintang',
-    location: 'Kuala Lumpur',
-    type: ['Annual Dinner'],
-    pricePerHour: 50,
+    locale: 'Sunway',
+    location: 'Selangor',
+    type: ['Fashion Shows', 'Function Hall'],
+    pricePerHour: 80,
     socials: [
       {
         icon: 'static/img/icons/socials/linkedin.svg',
@@ -20,7 +20,7 @@ const planners = [
       }
     ],
     description:
-      'Crafted unforgettable experiences for over 5 years, transforming vision boards into sold-out conferences, award-winning galas, and engaging product launches. Successfully managed budgets exceeding $200,000, consistently delivering events within budget and on time.'
+      '### Lai started his career by organizing frequent shows, he paid great attention to details in arranging runways and coordinating with designer access and model management to get the best result from his shows. He also concurrently organized different events in function halls such as corporate functions and social events. He handled the setup of the venue including seating arrangement and stage setup, catering, and entertainment. Through this, he has gained vast experience organizing fashion shows and events in function halls, making him suitable for planning events related to fashion shows or when a function hall is needed.'
   },
   {
     slug: 'william-law',
@@ -28,10 +28,10 @@ const planners = [
     profilePhoto: 'static/img/planners/william-law/profile.png',
     banner: 'static/img/planners/william-law/banner.jpg',
     rating: 3,
-    locale: 'Bukit Bintang',
-    location: 'Kuala Lumpur',
-    type: ['Function Hall', 'Exhibition'],
-    pricePerHour: 50,
+    locale: 'Teluk Intan',
+    location: 'Ipoh',
+    type: ['Conference', 'Annual Dinner'],
+    pricePerHour: 100,
     socials: [
       {
         icon: 'static/img/icons/socials/linkedin.svg',
@@ -43,7 +43,7 @@ const planners = [
       }
     ],
     description:
-      'Crafted unforgettable experiences for over 5 years, transforming vision boards into sold-out conferences, award-winning galas, and engaging product launches. Successfully managed budgets exceeding $200,000, consistently delivering events within budget and on time.'
+      '### With an overall experience of over 12 years in the pharmaceutical industry, William has won his spurs for organizing high-stakes conferences and exhibitions. Being a senior event coordinator, he has been responsible for the planning and delivery of substantial pharmaceutical conferences. His responsibilities included detailed planning and managing complex scheduling to enable the effective transfer of knowledge and networking opportunities making him extremely suitable for event planning.'
   },
   {
     slug: 'joshua-bonham',
@@ -51,10 +51,10 @@ const planners = [
     profilePhoto: 'static/img/planners/joshua-bonham/profile.png',
     banner: 'static/img/planners/joshua-bonham/banner.png',
     rating: 3,
-    locale: 'Bukit Bintang',
-    location: 'Kuala Lumpur',
-    type: ['Wedding'],
-    pricePerHour: 50,
+    locale: 'Jelutong ',
+    location: 'Penang',
+    type: ['Wedding', 'Fashion Shows'],
+    pricePerHour: 150,
     socials: [
       {
         icon: 'static/img/icons/socials/linkedin.svg',
@@ -66,18 +66,18 @@ const planners = [
       }
     ],
     description:
-      'Crafted unforgettable experiences for over 5 years, transforming vision boards into sold-out conferences, award-winning galas, and engaging product launches. Successfully managed budgets exceeding $200,000, consistently delivering events within budget and on time.'
+      '### Joshua leverages over 12 years of experience in the film industry, where he honed his skills as a shot coordinator, to orchestrate unforgettable events. He brings a further 5 years of expertise from the wedding planning industry and 2 years managing Sunway Got Talent, solidifying his reputation as a world-renowned event planner.'
   },
   {
     slug: 'justin-yong',
     name: 'Justin Yong',
     profilePhoto: 'static/img/planners/justin-yong/profile.jpg',
-    banner: 'static/img/planners/justin-yong/profile.jpg',
+    banner: 'static/img/planners/justin-yong/banner.png',
     rating: 5,
     locale: 'Bukit Bintang',
     location: 'Kuala Lumpur',
-    type: ['Exhibition'],
-    pricePerHour: 50,
+    type: ['Exhibition', 'Annual Dinner'],
+    pricePerHour: 120,
     socials: [
       {
         icon: 'static/img/icons/socials/x.svg',
@@ -93,7 +93,7 @@ const planners = [
       }
     ],
     description:
-      'Crafted unforgettable experiences for over 5 years, transforming vision boards into sold-out conferences, award-winning galas, and engaging product launches. Successfully managed budgets exceeding $200,000, consistently delivering events within budget and on time.'
+      '### Justin is an Award-Winning Politician turned event manager. He spent 10 years with the Ministry of Finance before it went bankrupt as a result of too many high-end events. As someone with experience in politics, he is an ideal candidate to plan your next debate or to launch your political campaign.'
   }
 ];
 

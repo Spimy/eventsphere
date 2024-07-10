@@ -13,22 +13,35 @@ const halls = [
       'static/img/halls/ritz-carlton/gallery/2.jpeg',
       'static/img/halls/ritz-carlton/gallery/3.jpeg'
     ],
-    type: ['Annual Dinner', 'Wedding'],
+    type: ['Annual Dinner', 'Wedding', 'Conference'],
     description: `
-      The Ritz-Carlton is a nice hotel... blah blah
+      ## The true definition of luxury is through the very essence of genuine hospitality. Imagine extraordinary and captivating enclaves, exquisite fine dining, and well-designed spaces in which to retire.
 
       
       <br />
-      **Amenities**
-      ✓ Complementary WiFi
-      ✓ Basic PA System 
-      ✓ Tables and Chairs 
-      ✓ Air Conditions
+      ## **Amenities**
+      ✓ Restaurant
+      ✓ Spa
+      ✓ Fitness Center
+      ✓ Outdoor Pool
+      ✓ 24-Hour Room Service
+      ✓ Daily Housekeeping
+      ✓ Turndown Service
+      ✓ Meeting Space
+      ✓ Gift Shop
+      ✓ Dry Cleaning Service
+      ✓ Laundry
+      ✓ Room Service
+      ✓ Hair Salon
+      ✓ Wake-Up Calls
+      ✓ Free Wi-Fi
+      ✓ Kitchenette
+
       
-      **Add-On Services**
-      * Event Crew
-      * Event Management 
-      * Photo Booth
+      ## **Add-On Services**
+      * Private Limousine/Van Service
+      * Babysitting
+    
     `
   },
   {
@@ -36,8 +49,8 @@ const halls = [
     name: 'Glasshouse Seputeh',
     locale: 'Seputeh',
     location: 'Kuala Lumpur',
-    pricePerPax: 420,
-    maxPax: 450,
+    pricePerPax: 500,
+    maxPax: 300,
     image: 'static/img/halls/glasshouse-seputeh/main.jpg',
     gallery: [
       'static/img/halls/glasshouse-seputeh/main.jpg',
@@ -45,22 +58,27 @@ const halls = [
       'static/img/halls/glasshouse-seputeh/gallery/2.jpeg',
       'static/img/halls/glasshouse-seputeh/gallery/3.webp'
     ],
-    type: ['Wedding', 'Function Hall'],
+    type: ['Wedding', 'Function Hall', 'Conference'],
     description: `
-      The Glasshouse is a nice hotel... blah blah
+      ## Enjoy the tranquil luxury of Bangi Resort Hotel, located at the peak of Bandar Baru Bangi. This 5-star resort is accorded with superb views, where every guest is guaranteed a memorable stay, be it business or pleasure.
 
 
       <br />
-      **Amenities**
-      * ✓ Complementary WiFi
-      * ✓ Basic PA System 
-      * ✓ Tables and Chairs 
-      * ✓ Air Conditions
+      ## **Amenities**
+      ✓ Free Wi-Fi
+      ✓ Restaurants 
+      ✓ Spa 
+      ✓ Fitness Center
+      ✓ Outdoor Pool
+      ✓ Golf Course
+      ✓ Meeting Rooms
+      ✓ Ballroom
+      ✓ Daily Housekeeping
+      ✓ Laundry Service
 
-      **Add-On Services**
-      * Event Crew
-      * Event Management 
-      * Photo Booth
+      ## **Add-On Services**
+      * Celebrity Chef Dining
+      * Event Hosting
     `
   },
   {
@@ -68,8 +86,8 @@ const halls = [
     name: 'St. Regis KL',
     locale: 'KL Sentral',
     location: 'Kuala Lumpur',
-    pricePerPax: 420,
-    maxPax: 450,
+    pricePerPax: 300,
+    maxPax: 1500,
     image: 'static/img/halls/st-regis/main.jpg',
     gallery: [
       'static/img/halls/st-regis/main.jpg',
@@ -77,22 +95,37 @@ const halls = [
       'static/img/halls/st-regis/gallery/2.jpg',
       'static/img/halls/st-regis/gallery/3.jpg'
     ],
-    type: ['Exhibition'],
+    type: ['Exhibition', 'Wedding', 'Annual Dinner'],
     description: `
-      The St. Regis is a nice hotel... blah blah
+      ## Experience luxury like never before where sophistication meets comfort. Located in the pulsating core of the city, offering facilities that are just out of this world.
+
 
       
       <br />
-      **Amenities**
-      * ✓ Complementary WiFi
-      * ✓ Basic PA System 
-      * ✓ Tables and Chairs 
-      * ✓ Air Conditions
+      ## **Amenities**
+      ✓ Free Wi-Fi
+      ✓ Restaurants
+      ✓ Fitness Center
+      ✓ Outdoor Pool
+      ✓ Iridium Spa
+      ✓ Daily Housekeeping
+      ✓ Meeting Space
+      ✓ Drawing Rooms
+      ✓ Bar
+      ✓ Daily Housekeeping
+      ✓ Turndown Service
+      ✓ Dry Cleaning Service
+      ✓ Laundry
+      ✓ Kitchen
+      ✓ Room Service
+      ✓ Mobile Key
+      ✓ Service Request
 
-      **Add-On Services**
-      * Event Crew
-      * Event Management 
-      * Photo Booth
+      ## **Add-On Services**
+      * Event Management
+      * Experimental Dining 
+      * Wake up Calls
+      * 24 Hour Room Service
     `
   },
   {
@@ -100,30 +133,40 @@ const halls = [
     name: 'KL Convention Centre',
     locale: 'KLCC',
     location: 'Kuala Lumpur',
-    pricePerPax: 420,
-    maxPax: 450,
+    pricePerPax: 250,
+    maxPax: 5000,
     image: 'static/img/halls/klcc/main.jpg',
     gallery: [
       'static/img/halls/klcc/main.jpg',
       'static/img/halls/klcc/gallery/1.jpg',
       'static/img/halls/klcc/gallery/2.jpg'
     ],
-    type: ['Exhibition'],
+    type: ['Exhibition', 'Conference', 'Annual Dinner'],
     description: `
-      The St. Regis is a nice hotel... blah blah
+      ## Malaysia's flagship for events, and an award-winning, purpose-built venue, located in the heart of the city with state-of-the-art facilities for conferences, exhibitions, and events/ Dine around its world-class dining outlets.
 
       
       <br />
-      **Amenities**
-      * ✓ Complementary WiFi
-      * ✓ Basic PA System 
-      * ✓ Tables and Chairs 
-      * ✓ Air Conditions
+      ## **Amenities**
+      ✓ Free Wi-Fi
+      ✓ Exhibition Halls 
+      ✓ Meeting Rooms 
+      ✓ Banquet Facilities
+      ✓ Auditoriums
+      ✓ Conference Rooms
+      ✓ VIP Lounges
+      ✓ Business Centre
+      ✓ On-site Dining availablity
+      ✓ On-site Parking
 
-      **Add-On Services**
-      * Event Crew
-      * Event Management 
-      * Photo Booth
+      ## **Add-On Services**
+      * Event Planning and Management
+      * Catering Services
+      * Audio-Visual Equipment Rental
+      * Technical Support
+      * Decoration Services
+      * Security
+      * Concierge
     `
   },
   {
@@ -140,22 +183,25 @@ const halls = [
       'static/img/halls/klpac/gallery/2.jpg',
       'static/img/halls/klpac/gallery/3.jpg'
     ],
-    type: ['Exhibition'],
+    type: ['Exhibition', 'Fashion Shows', 'Function Hall'],
     description: `
-      The St. Regis is a nice hotel... blah blah
+      ## You don't need to search any more for a distinctive location for your performance, gathering, festival, or photo session. Welcome to KLPAC, an award-winning heritage building
 
       
       <br />
-      **Amenities**
-      * ✓ Complementary WiFi
-      * ✓ Basic PA System 
-      * ✓ Tables and Chairs 
-      * ✓ Air Conditions
+      ## **Amenities**
+      ✓ Theatres
+      ✓ Studio Space 
+      ✓ Gallery Space 
+      ✓ Lawn and Deck Areas
+      ✓ 35-Acre Park
+      ✓ Lake
 
-      **Add-On Services**
+      ## **Add-On Services**
+      * Audio Visual Equipment
       * Event Crew
-      * Event Management 
       * Photo Booth
+      * Billboard Advertising
     `
   },
   {
@@ -163,8 +209,8 @@ const halls = [
     name: 'DoubleTree Putrajaya',
     locale: '-',
     location: 'Putrajaya',
-    pricePerPax: 420,
-    maxPax: 450,
+    pricePerPax: 319,
+    maxPax: 1200,
     image: 'static/img/halls/doubletree/main.jpg',
     gallery: [
       'static/img/halls/doubletree/main.jpg',
@@ -173,20 +219,30 @@ const halls = [
     ],
     type: ['Exhibition', 'Conference'],
     description: `
-      The St. Regis is a nice hotel... blah blah
+      ## DoubleTree is a modern comfort that meets scenic tranquillity. Be taken away by its top-tiered amenities. Enjoy local and international cuisine. The ideal hotel for business and leisure, it offers vast event spaces and family-friendly activities.
+
 
       
       <br />
-      **Amenities**
-      * ✓ Complementary WiFi
-      * ✓ Basic PA System 
-      * ✓ Tables and Chairs 
-      * ✓ Air Conditions
+      ## **Amenities**
+      ✓ Free Wi-Fi
+      ✓ Connecting Room 
+      ✓ Digital Key 
+      ✓ Spa
+      ✓ EV Charging
+      ✓ Executive Lounge
+      ✓ On-site Restaurant
+      ✓ Outdoor Pool
+      ✓ Fitness Center
+      ✓ Room Service
+      ✓ Meeting Rooms
+      ✓ Laundry and Dry Cleaning Services
 
-      **Add-On Services**
-      * Event Crew
-      * Event Management 
-      * Photo Booth
+      ## **Add-On Services**
+      * Event Planning and Management
+      * Catering Services
+      * Technical Support
+      * Babysitting
     `
   },
   {
@@ -194,8 +250,8 @@ const halls = [
     name: 'Pyramid Convention Centre',
     locale: 'Sunway',
     location: 'Selangor',
-    pricePerPax: 420,
-    maxPax: 450,
+    pricePerPax: 400,
+    maxPax: 6000,
     image: 'static/img/halls/spcc/main.jpg',
     gallery: [
       'static/img/halls/spcc/main.jpg',
@@ -203,22 +259,25 @@ const halls = [
       'static/img/halls/spcc/gallery/2.jpg',
       'static/img/halls/spcc/gallery/3.jpg'
     ],
-    type: ['Exhibition'],
+    type: ['Conference', 'Wedding'],
     description: `
-      The St. Regis is a nice hotel... blah blah
+      ## Situated in the heart of Sunway, right above Sunway Shopping mall, and near Sunway Resort Hotel & Spa, Sunway Hotel Pyramid and Sunway Lagoon Hotel, this venue is the most convenient and ideal space for a large audience of people.
 
       
       <br />
-      **Amenities**
-      * ✓ Complementary WiFi
-      * ✓ Basic PA System 
-      * ✓ Tables and Chairs 
-      * ✓ Air Conditions
+      ## **Amenities**
+      ✓ 7.157 Sq meter Open-plan Convention Centre
+      ✓ Function Rooms
+      ✓ Ballroom 
+      ✓ Air Conditions
+      ✓ Tables and Chairs
+      ✓ Free Wi-Fi
 
-      **Add-On Services**
-      * Event Crew
-      * Event Management 
-      * Photo Booth
+      ## **Add-On Services**
+      * Huge Parking Space
+      * 24/7 Security 
+      * PlugPoints
+      * Coffee Machine
     `
   },
   {
@@ -226,8 +285,8 @@ const halls = [
     name: 'Dewan Budaya',
     locale: '-',
     location: 'Ipoh',
-    pricePerPax: 420,
-    maxPax: 450,
+    pricePerPax: 220,
+    maxPax: 480,
     image: 'static/img/halls/dewan-budaya/main.jpeg',
     gallery: [
       'static/img/halls/dewan-budaya/main.jpeg',
@@ -235,22 +294,21 @@ const halls = [
       'static/img/halls/dewan-budaya/gallery/2.jpg',
       'static/img/halls/dewan-budaya/gallery/3.jpg'
     ],
-    type: ['Exhibition'],
+    type: ['Exhibition', 'Function Hall'],
     description: `
-      The St. Regis is a nice hotel... blah blah
+      ## This newly renovated historical venue showcases the history of Ipoh through its amazing architecture and design. It exudes a feeling of antiquity and is perfect for concert productions, weddings and more.
 
       
       <br />
-      **Amenities**
-      * ✓ Complementary WiFi
-      * ✓ Basic PA System 
-      * ✓ Tables and Chairs 
-      * ✓ Air Conditions
+      ## **Amenities**
+      ✓ Free Wi-Fi
+      ✓ Basic PA System 
+      ✓ Tables and Chairs 
+      ✓ Air Conditions
 
-      **Add-On Services**
-      * Event Crew
-      * Event Management 
-      * Photo Booth
+      ## **Add-On Services**
+      * 24/7 Security
+      * Free Parking 
     `
   },
   {
@@ -258,8 +316,8 @@ const halls = [
     name: 'Pulai Spring Resort',
     locale: 'Johor Bahru',
     location: 'Johor',
-    pricePerPax: 420,
-    maxPax: 450,
+    pricePerPax: 309,
+    maxPax: 800,
     image: 'static/img/halls/pulai-spring-resort/main.webp',
     gallery: [
       'static/img/halls/pulai-spring-resort/main.webp',
@@ -267,22 +325,27 @@ const halls = [
       'static/img/halls/pulai-spring-resort/gallery/2.jpg',
       'static/img/halls/pulai-spring-resort/gallery/3.jpg'
     ],
-    type: ['Exhibition'],
+    type: ['Wedding', 'Annual Dinner'],
     description: `
-      The St. Regis is a nice hotel... blah blah
+      ## Located in Johor, the southernmost state of West Malaysia, Pulai Springs Resort is a recreational area tucked away in the magnificent Malaysian flora and fauna at the base of Mount Pulai.
 
       
       <br />
-      **Amenities**
-      * ✓ Complementary WiFi
-      * ✓ Basic PA System 
-      * ✓ Tables and Chairs 
-      * ✓ Air Conditions
+      ## **Amenities**
+      ✓ 9 Venue Sections
+      ✓ Gymnasium
+      ✓ Tables and Chairs 
+      ✓ Air Conditions
+      ✓ Swimming Pools
+      ✓ The Pulai Spa
+      ✓ Sports & Recreation
 
-      **Add-On Services**
+      ## **Add-On Services**
       * Event Crew
-      * Event Management 
-      * Photo Booth
+      * Audio Visual Equipment
+      * Catering
+      * Free Parking
+      * Overnight Stays
     `
   },
   {
@@ -290,8 +353,8 @@ const halls = [
     name: "David Brown's Restaurant & Tea Terrace",
     locale: 'Penang Hill',
     location: 'Penang',
-    pricePerPax: 420,
-    maxPax: 450,
+    pricePerPax: 199,
+    maxPax: 150,
     image: 'static/img/halls/db-ratt/main.png',
     gallery: [
       'static/img/halls/db-ratt/main.png',
@@ -299,22 +362,24 @@ const halls = [
       'static/img/halls/db-ratt/gallery/2.jpg',
       'static/img/halls/db-ratt/gallery/3.jpg'
     ],
-    type: ['Annual Dinner'],
+    type: ['Annual Dinner', 'Conference', 'Wedding'],
     description: `
-      The St. Regis is a nice hotel... blah blah
+      ## For a business function or dinner, seminar, product launch, training, management meeting, yearly or family meal, David Brown's is the perfect venue. Outside, David Brown's offers an amazing view of all the major sites on the Pearl of the Orient as it is situated on top of Penang Hill.
 
       
       <br />
-      **Amenities**
-      * ✓ Complementary WiFi
-      * ✓ Basic PA System 
-      * ✓ Tables and Chairs 
-      * ✓ Air Conditions
+      ## **Amenities**
+      ✓ Free Wi-Fi
+      ✓ Pond 
+      ✓ Tables and Chairs 
+      ✓ Garden Area
 
-      **Add-On Services**
-      * Event Crew
-      * Event Management 
-      * Photo Booth
+      ## **Add-On Services**
+      * Catering
+      * Event Mood-Lighting 
+      * Audio Visual Equipment
+      * Free Parking
+      * 24/7 Security
     `
   }
 ];
