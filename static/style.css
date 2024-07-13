@@ -34,6 +34,7 @@ html:focus-within {
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* A elements that don't have a class get default styles */
